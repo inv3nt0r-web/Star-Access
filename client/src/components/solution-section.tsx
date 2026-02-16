@@ -1,5 +1,7 @@
+import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import howItWorksImage from "@assets/7B7B6E2B-5CD6-46D7-8101-7A977900F01C_1771285225052.png";
+import prototypeImage from "@assets/IMG_2965_1771286187104.png";
 
 export function SolutionSection() {
   return (
@@ -75,6 +77,41 @@ export function SolutionSection() {
               ))}
             </div>
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-20"
+        >
+          <Card className="overflow-visible p-6 lg:p-10">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div>
+                <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3" data-testid="text-engineering-label">
+                  Behind the Scenes
+                </p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4" data-testid="text-engineering-title">
+                  Real German Engineering
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4" data-testid="text-engineering-description">
+                  JB5 isn't just a concept — it's being built with real precision engineering. Our prototype is actively developed with high-quality components, tested rigorously for reliability and performance.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Every detail is crafted to deliver a seamless one-button experience you can count on, day after day.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src={prototypeImage}
+                  alt="JB5 engineering prototype in development"
+                  className="w-full max-w-sm rounded-md object-cover"
+                  data-testid="img-prototype"
+                />
+              </div>
+            </div>
+          </Card>
         </motion.div>
       </div>
     </section>

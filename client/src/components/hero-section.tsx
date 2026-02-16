@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import heroBackground from "@assets/IMG_1525_1771285225052.jpeg";
-import productImage from "@assets/BAA7E59D-41B6-4689-B5C9-8F3D6BFA29DD_1771285225052.png";
+import productImage from "@assets/C29A54D1-2496-4398-AC3D-1F56EB929DFB_1771286187104.png";
 
 export function HeroSection() {
   const scrollTo = (id: string) => {
