@@ -1,8 +1,15 @@
+import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import staraccesLogo from "@assets/IMG_0709_1771285225052.jpeg";
 
 export function Footer() {
+  const [location] = useLocation();
+
   const scrollTo = (id: string) => {
+    if (location !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -38,27 +45,48 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            {[
-              { label: "How It Works", id: "solution" },
-              { label: "Benefits", id: "benefits" },
-              { label: "Pricing", id: "pricing" },
-            ].map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-                data-testid={`link-footer-${link.id}`}
-              >
-                {link.label}
-              </button>
-            ))}
-            <a
-              href="mailto:info@staracces.com"
+            <button
+              onClick={() => scrollTo("solution")}
               className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-contact-email"
+              data-testid="link-footer-solution"
+            >
+              How It Works
+            </button>
+            <button
+              onClick={() => scrollTo("benefits")}
+              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              data-testid="link-footer-benefits"
+            >
+              Benefits
+            </button>
+            <button
+              onClick={() => scrollTo("pricing")}
+              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              data-testid="link-footer-pricing"
+            >
+              Pricing
+            </button>
+            <Link
+              href="/contact"
+              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              data-testid="link-footer-contact"
             >
               Contact
-            </a>
+            </Link>
+            <Link
+              href="/imprint"
+              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              data-testid="link-footer-imprint"
+            >
+              Imprint
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              data-testid="link-footer-privacy"
+            >
+              Privacy
+            </Link>
           </div>
 
           <div className="border-t border-border pt-8 text-center">
