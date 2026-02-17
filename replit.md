@@ -36,7 +36,7 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 11. User Stories (Sara/Marco/Ben persona cards)
 12. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
 13. Premier Pass (insider access subscription: exclusive updates, investor briefings, market intelligence, founding member status)
-14. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
+14. Pricing (5 Stripe checkout tiers: Early Bird $129, Insider Pass $149, Founder's Bundle $279, Business Partner $529, Co-Creator Circle $999 + Roadmap)
 15. Footer (section links + legal page links)
 
 ## Key Files
@@ -57,6 +57,13 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 - `GET /api/feedback` - Get featured feedback (emails stripped for privacy)
 - `POST /api/premier-pass` - Join Premier Pass (body: { email: string, name?: string })
 - `GET /api/premier-pass/count` - Get Premier Pass member count
+
+## Stripe Payment Links
+- Early Bird ($129): https://buy.stripe.com/4gM3cw5Kg8u75qH5FX00003
+- Insider Pass ($149): https://buy.stripe.com/4gM7sMa0wcKng5ld8p00004
+- Founder's Bundle ($279): https://buy.stripe.com/4gMbJ20pWh0D06ngkB00005
+- Business Partner ($529): https://buy.stripe.com/3cI8wQdcIbGj8CT7O500006
+- Co-Creator Circle ($999): https://buy.stripe.com/eVqbJ28Ws39Ng5l1pH00007
 
 ## Feedback System
 - Customers submit feedback with name, email, star rating, and message

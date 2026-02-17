@@ -213,6 +213,21 @@ export function PremierPassSection() {
                     No spam. No payment. Unsubscribe anytime.
                   </p>
                 </form>
+                <div className="mt-6 pt-6 border-t border-border/40">
+                  <p className="text-xs text-muted-foreground text-center mb-3">
+                    Want full insider access with investor reports &amp; Q&amp;A?
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => window.open("https://buy.stripe.com/4gM7sMa0wcKng5ld8p00004", "_blank", "noopener,noreferrer")}
+                    data-testid="button-premier-upgrade"
+                  >
+                    <Crown className="mr-2 h-3.5 w-3.5" />
+                    Upgrade to Insider Pass &mdash; $149
+                  </Button>
+                </div>
               </div>
             </div>
           </Card>

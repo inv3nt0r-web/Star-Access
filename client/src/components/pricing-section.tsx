@@ -1,16 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { motion } from "framer-motion";
-import { Check, Loader2, ArrowRight } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { insertWaitlistSchema, type InsertWaitlistEntry } from "@shared/schema";
+import { Check, ArrowRight, ExternalLink, Crown, Zap, Star, Briefcase, Gem } from "lucide-react";
 
 const timeline = [
   { quarter: "Q2 2026", label: "Early Bird Pre-Orders Open", active: true },
@@ -19,58 +11,104 @@ const timeline = [
   { quarter: "Q1 2027", label: "Full Production & Global Launch", active: false },
 ];
 
-const earlyBirdPerks = [
-  "Guaranteed early bird pricing",
-  "Priority shipping before public launch",
-  "Exclusive access to beta testing",
-  "Free lifetime firmware updates",
-  "Full refund guarantee",
+const tiers = [
+  {
+    name: "Early Bird",
+    price: 129,
+    originalPrice: 149,
+    icon: Zap,
+    badge: "Most Popular",
+    featured: false,
+    description: "Pre-order the JB5 at the lowest price available.",
+    perks: [
+      "1x JB5 unit delivered Q4 2026",
+      "Save $20 off regular price",
+      "First production batch guaranteed",
+      "Development updates until delivery",
+      "Lifetime customer support",
+      "Priority shipping",
+    ],
+    note: "Limited pre-orders available",
+    url: "https://buy.stripe.com/4gM3cw5Kg8u75qH5FX00003",
+    buttonText: "Pre-Order Now",
+  },
+  {
+    name: "Founder's Bundle",
+    price: 279,
+    originalPrice: null,
+    icon: Star,
+    badge: "Best Value",
+    featured: true,
+    description: "Complete package: JB5 device + full insider access.",
+    perks: [
+      "1x JB5 unit ($129 value)",
+      "Full insider access included",
+      "Priority shipping + 2-year warranty",
+      "Monthly reports & quarterly Q&A",
+      "Founding Supporter status",
+      "Custom branding access",
+    ],
+    note: "Limited to 100 bundles",
+    url: "https://buy.stripe.com/4gMbJ20pWh0D06ngkB00005",
+    buttonText: "Get the Bundle",
+  },
+  {
+    name: "Insider Pass",
+    price: 149,
+    originalPrice: null,
+    icon: Crown,
+    badge: "Intelligence Only",
+    featured: false,
+    description: "Unprecedented access to JB5's journey. No device included.",
+    perks: [
+      "Monthly investor reports",
+      "Partnership updates (Casa Verde, Cookies, Stiiizy)",
+      "Quarterly Q&A with founder",
+      "Private community access",
+      "Affiliate program access",
+    ],
+    note: "Device not included",
+    url: "https://buy.stripe.com/4gM7sMa0wcKng5ld8p00004",
+    buttonText: "Get Insider Access",
+  },
+];
+
+const premiumTiers = [
+  {
+    name: "Business Partner",
+    price: 529,
+    icon: Briefcase,
+    badge: "Premium",
+    description: "Enhanced partnership package with expanded access and multiple units for serious supporters and early business partners.",
+    perks: [
+      "Multiple JB5 units included",
+      "All insider access benefits",
+      "Business partnership opportunities",
+      "Extended warranty coverage",
+      "Priority founder access",
+    ],
+    url: "https://buy.stripe.com/3cI8wQdcIbGj8CT7O500006",
+    buttonText: "Become a Partner",
+  },
+  {
+    name: "Co-Creator Circle",
+    price: 999,
+    icon: Gem,
+    badge: "Only 5 Spots",
+    description: "Ultimate insider experience with direct founder access, 2x JB5 units, co-branding opportunities, and revenue share potential.",
+    perks: [
+      "2x JB5 units included",
+      "Direct founder access (WhatsApp)",
+      "Studio visits & all event invites",
+      "Co-branding & revenue share potential",
+      "Custom prototype access",
+    ],
+    url: "https://buy.stripe.com/eVqbJ28Ws39Ng5l1pH00007",
+    buttonText: "Join the Circle",
+  },
 ];
 
 export function PricingSection() {
-  const { toast } = useToast();
-
-  const form = useForm<InsertWaitlistEntry>({
-    resolver: zodResolver(insertWaitlistSchema),
-    defaultValues: {
-      email: "",
-      name: "",
-    },
-  });
-
-  const { data: countData } = useQuery<{ count: number }>({
-    queryKey: ["/api/waitlist/count"],
-  });
-
-  const joinWaitlist = useMutation({
-    mutationFn: async (data: InsertWaitlistEntry) => {
-      const res = await apiRequest("POST", "/api/waitlist", data);
-      return res.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "You're on the list!",
-        description: "We'll notify you when JB5 is ready for pre-order. Thank you for your interest!",
-      });
-      form.reset();
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Could not join waitlist",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertWaitlistEntry) => {
-    joinWaitlist.mutate(data);
-  };
-
-  const spotsText = countData?.count
-    ? `${countData.count} people already signed up`
-    : null;
-
   return (
     <section
       id="pricing"
@@ -86,151 +124,162 @@ export function PricingSection() {
           className="text-center mb-20"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4" data-testid="text-pricing-label">
-            Early Bird Pre-Order
+            Pre-Order Now
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight" data-testid="text-pricing-title">
-            Be First. Pay Less.
+            Choose Your Tier
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm" data-testid="text-pricing-subtitle">
-            Secure your JB5 at the early bird price before public launch.
+            Secure your JB5 at the early bird price. All payments processed securely through Stripe.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
-          >
-            <Card className="p-8 lg:p-10 h-full" data-testid="card-early-bird">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10">
-                <div>
-                  <Badge variant="outline" className="mb-4 no-default-hover-elevate no-default-active-elevate text-xs" data-testid="badge-early-bird">
-                    Early Bird
-                  </Badge>
-                  <h3 className="text-xl font-semibold text-foreground" data-testid="text-tier-name">
-                    JB5 Pre-Order
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1" data-testid="text-tier-desc">
-                    Reserve yours now, pay later
-                  </p>
-                </div>
-                <div className="text-left sm:text-right">
-                  <span className="text-sm text-muted-foreground line-through" data-testid="text-regular-price">
-                    $149
-                  </span>
-                  <div>
-                    <span className="text-5xl lg:text-6xl font-bold text-foreground tracking-tight" data-testid="text-price">$99</span>
-                  </div>
-                  <Badge variant="outline" className="mt-2 no-default-hover-elevate no-default-active-elevate text-xs" data-testid="badge-save">
-                    SAVE $50
-                  </Badge>
-                </div>
-              </div>
-
-              <div className="space-y-3 mb-10">
-                {earlyBirdPerks.map((perk) => (
-                  <div key={perk} className="flex items-center gap-3">
-                    <Check className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <span className="text-sm text-muted-foreground" data-testid={`text-perk-${perk.slice(0, 20).toLowerCase().replace(/\s+/g, "-")}`}>
-                      {perk}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3" data-testid="form-waitlist">
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem className="flex-1">
-                        <FormControl>
-                          <Input
-                            type="email"
-                            placeholder="Enter your email"
-                            data-testid="input-email"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage data-testid="text-email-error" />
-                      </FormItem>
-                    )}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={joinWaitlist.isPending}
-                    data-testid="button-join-waitlist"
-                  >
-                    {joinWaitlist.isPending ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>
-                        Reserve Now
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </Form>
-
-              <div className="flex flex-wrap items-center gap-4 mt-4">
-                <p className="text-xs text-muted-foreground" data-testid="text-delivery-info">
-                  Expected delivery: Q4 2026
-                </p>
-                {spotsText && (
-                  <p className="text-xs text-muted-foreground" data-testid="text-waitlist-count">
-                    {spotsText}
-                  </p>
-                )}
-              </div>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <Card className="p-8 lg:p-10 h-full flex flex-col" data-testid="card-investor">
-              <Badge variant="outline" className="mb-6 no-default-hover-elevate no-default-active-elevate self-start text-xs" data-testid="badge-investor">
-                Investors &amp; Partners
-              </Badge>
-              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-investor-title">
-                Partner With Us
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8 flex-1" data-testid="text-investor-desc">
-                We're scaling from prototype to serial production. Join us in bringing the first fully automatic rolling machine to the global market.
-              </p>
-              <div className="space-y-3 mb-8">
-                {[
-                  "Patented technology (DE 10 2023 130 535 A1)",
-                  "Government-backed R&D (BMWK / WIPANO)",
-                  "$822B addressable market by 2032",
-                  "Production-ready design with CE path",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
-                    <span className="text-xs text-muted-foreground">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={() => window.location.href = "mailto:invest@staracces.com?subject=JB5 Investment Inquiry"}
-                data-testid="button-investor-contact"
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+          {tiers.map((tier, index) => (
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Card
+                className={`p-8 h-full flex flex-col relative overflow-visible ${
+                  tier.featured ? "ring-1 ring-foreground/20" : ""
+                }`}
+                data-testid={`card-tier-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                Get in Touch
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Card>
-          </motion.div>
+                {tier.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <Badge className="no-default-hover-elevate no-default-active-elevate text-xs" data-testid="badge-best-value">
+                      {tier.badge}
+                    </Badge>
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-md bg-muted">
+                      <tier.icon className="w-4 h-4 text-foreground" />
+                    </div>
+                    {!tier.featured && (
+                      <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate text-xs">
+                        {tier.badge}
+                      </Badge>
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground" data-testid={`text-tier-name-${index}`}>
+                    {tier.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {tier.description}
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  {tier.originalPrice && (
+                    <span className="text-sm text-muted-foreground line-through mr-2">
+                      ${tier.originalPrice}
+                    </span>
+                  )}
+                  <span className="text-4xl font-bold text-foreground tracking-tight" data-testid={`text-price-${index}`}>
+                    ${tier.price}
+                  </span>
+                </div>
+
+                <div className="space-y-3 mb-8 flex-1">
+                  {tier.perks.map((perk) => (
+                    <div key={perk} className="flex items-start gap-3">
+                      <Check className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-muted-foreground">{perk}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {tier.note && (
+                  <p className="text-xs text-muted-foreground/60 mb-4">{tier.note}</p>
+                )}
+
+                <Button
+                  className="w-full"
+                  variant={tier.featured ? "default" : "outline"}
+                  onClick={() => window.open(tier.url, "_blank", "noopener,noreferrer")}
+                  data-testid={`button-buy-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  {tier.buttonText}
+                  <ExternalLink className="ml-2 h-3.5 w-3.5" />
+                </Button>
+              </Card>
+            </motion.div>
+          ))}
         </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {premiumTiers.map((tier, index) => (
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Card className="p-8 h-full flex flex-col overflow-visible" data-testid={`card-tier-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-md bg-muted">
+                    <tier.icon className="w-4 h-4 text-foreground" />
+                  </div>
+                  <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate text-xs">
+                    {tier.badge}
+                  </Badge>
+                </div>
+
+                <h3 className="text-lg font-semibold text-foreground mb-1" data-testid={`text-premium-tier-name-${index}`}>
+                  {tier.name}
+                </h3>
+                <p className="text-xs text-muted-foreground mb-4">
+                  {tier.description}
+                </p>
+
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-foreground tracking-tight" data-testid={`text-premium-price-${index}`}>
+                    ${tier.price}
+                  </span>
+                </div>
+
+                <div className="space-y-3 mb-8 flex-1">
+                  {tier.perks.map((perk) => (
+                    <div key={perk} className="flex items-start gap-3">
+                      <Check className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-muted-foreground">{perk}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => window.open(tier.url, "_blank", "noopener,noreferrer")}
+                  data-testid={`button-buy-${tier.name.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  {tier.buttonText}
+                  <ExternalLink className="ml-2 h-3.5 w-3.5" />
+                </Button>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-xs text-muted-foreground/50">
+            All payments are securely processed through Stripe. Prices in USD.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
