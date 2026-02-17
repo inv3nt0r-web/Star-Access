@@ -48,12 +48,15 @@ export function FounderSection() {
                   Daniel Seyffarth
                 </h3>
                 <p className="text-muted-foreground font-medium mb-8" data-testid="text-founder-role">
-                  Founder &amp; Inventor of JB5
+                  Founder &amp; CEO, Staracces UG
                 </p>
 
                 <div className="space-y-5 text-muted-foreground leading-relaxed">
                   <p>
-                    Trained as a mechanic at Mercedes-Benz, with two years studying mechanical engineering, Daniel spent over 15 years in consumer electronics &mdash; including several years at Apple, where he ran in-store launches for products like Apple Vision Pro and delivered live demos to key customers from day one.
+                    Trained as a mechanic at Mercedes-Benz with two years studying mechanical engineering, Daniel brings 15+ years in consumer electronics &mdash; including his current role as a Retail Product Zone Specialist at Apple in Berlin, where he runs in-store launches for products like Apple Vision Pro and delivers live demos to key customers.
+                  </p>
+                  <p>
+                    Completed the Wharton School&rsquo;s entrepreneurship program under Prof. Ethan Mollick &mdash; one of the world&rsquo;s leading entrepreneurship educators and co-founder of Wharton Interactive, named among TIME&rsquo;s Most Influential People in AI (2024). The program covered bootstrapping, venture capital, equity financing, crowdfunding strategy, term sheets, and exit planning.
                   </p>
                   <p>
                     He invented the JB5 entirely on his own and built the first working prototype in Pr&oacute;spera, a special economic zone in Honduras. From there, he moved to Miami and Los Angeles to build the business connections needed to scale JB5 from prototype to industrial production.
@@ -64,6 +67,12 @@ export function FounderSection() {
                 </div>
 
                 <div className="flex flex-wrap gap-3 mt-8">
+                  <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-apple">
+                    Apple Product Specialist
+                  </Badge>
+                  <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-wharton">
+                    Wharton Entrepreneurship
+                  </Badge>
                   <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-patent">
                     Patent DE 10 2023 130 535 A1
                   </Badge>
@@ -87,9 +96,9 @@ export function FounderSection() {
           className="mt-16 grid sm:grid-cols-3 gap-8"
         >
           {[
-            { value: "$822B", label: "Projected market by 2032", sublabel: "+11.9% annual growth" },
             { value: "15+", label: "Years in consumer tech", sublabel: "Mercedes-Benz & Apple" },
-            { value: "100%", label: "German engineered", sublabel: "Government funded R&D" },
+            { value: "Wharton", label: "Entrepreneurship trained", sublabel: "Prof. Ethan Mollick" },
+            { value: "100%", label: "German engineered", sublabel: "BMWK & WIPANO funded" },
           ].map((stat) => (
             <div key={stat.label} className="text-center" data-testid={`card-founder-stat-${stat.value.toLowerCase().replace(/[^a-z0-9]/g, "")}`}>
               <p className="text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-2">{stat.value}</p>
