@@ -53,7 +53,7 @@ export function FounderSection() {
 
                 <div className="space-y-5 text-muted-foreground leading-relaxed">
                   <p>
-                    Trained as a mechanic at Mercedes-Benz with two years studying mechanical engineering, Daniel brings 15+ years in consumer electronics &mdash; including his current role as a Retail Product Zone Specialist at Apple in Berlin, where he runs in-store launches for products like Apple Vision Pro and delivers live demos to key customers.
+                    With hands-on construction experience as a partner at Mercedes-Benz and two years studying mechanical engineering, Daniel brings deep technical expertise to hardware development. He spent years as a Retail Product Zone Specialist at Apple in Berlin &mdash; running in-store launches for products like Apple Vision Pro and delivering live demos to key customers &mdash; before going all-in on Staracces.
                   </p>
                   <p>
                     Completed the Wharton School&rsquo;s entrepreneurship program under Prof. Ethan Mollick &mdash; one of the world&rsquo;s leading entrepreneurship educators and co-founder of Wharton Interactive, named among TIME&rsquo;s Most Influential People in AI (2024). The program covered bootstrapping, venture capital, equity financing, crowdfunding strategy, term sheets, and exit planning.
@@ -62,7 +62,7 @@ export function FounderSection() {
                     He invented the JB5 entirely on his own and built the first working prototype in Pr&oacute;spera, a special economic zone in Honduras. From there, he moved to Miami and Los Angeles to build the business connections needed to scale JB5 from prototype to industrial production.
                   </p>
                   <p>
-                    The result: a patent-pending, fully automatic rolling machine backed by the German Federal Ministry for Economic Affairs (BMWK) and the WIPANO funding program, with support from Forschungszentrum J&uuml;lich.
+                    The result: a patent-pending, fully automatic rolling machine backed by the German Federal Ministry for Economic Affairs (BMWK) and the WIPANO funding program, with support from Forschungszentrum J&uuml;lich. Staracces UG was founded in 2023 to bring this vision to market.
                   </p>
                 </div>
 
@@ -96,7 +96,7 @@ export function FounderSection() {
           className="mt-16 grid sm:grid-cols-3 gap-8"
         >
           {[
-            { value: "15+", label: "Years in consumer tech", sublabel: "Mercedes-Benz & Apple" },
+            { value: "15+", label: "Years in tech & engineering", sublabel: "Mercedes-Benz & Apple" },
             { value: "Wharton", label: "Entrepreneurship trained", sublabel: "Prof. Ethan Mollick" },
             { value: "100%", label: "German engineered", sublabel: "BMWK & WIPANO funded" },
           ].map((stat) => (

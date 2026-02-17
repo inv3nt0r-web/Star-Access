@@ -29,12 +29,13 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 4. Solution (feature badges, 4-step process, engineering card with CE/REACH/RoHS)
 5. Benefits (6 benefit cards)
 6. Market Opportunity (stats: $21B→$102B Grand View Research, TAM/SAM/SOM, target segments, business model, source citations)
-7. Founder (Daniel Seyffarth bio with Próspera/Miami/LA story, patent/funding badges)
+7. Founder (Daniel Seyffarth bio: Mercedes-Benz partner, Apple specialist, Wharton entrepreneurship under Prof. Ethan Mollick, patent/funding badges)
 8. Journey (3-step visual timeline with prototype photos)
-9. User Stories (Sara/Marco/Ben persona cards)
-10. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
-11. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
-12. Footer (section links + legal page links)
+9. Próspera (overview of Próspera ZEDE charter city on Roatán: private governance, 1% tax, 24h company setup, crypto-native, investor-backed)
+10. User Stories (Sara/Marco/Ben persona cards)
+11. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
+12. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
+13. Footer (section links + legal page links)
 
 ## Key Files
 - `client/src/pages/landing.tsx` - Main landing page

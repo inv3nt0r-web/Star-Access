@@ -6,6 +6,7 @@ import { BenefitsSection } from "@/components/benefits-section";
 import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
 import { JourneySection } from "@/components/journey-section";
+import { ProsperaSection } from "@/components/prospera-section";
 import { StoriesSection } from "@/components/stories-section";
 import { FeedbackSection } from "@/components/feedback-section";
 import { PricingSection } from "@/components/pricing-section";
@@ -23,6 +24,7 @@ export default function Landing() {
         <MarketSection />
         <FounderSection />
         <JourneySection />
+        <ProsperaSection />
         <StoriesSection />
         <FeedbackSection />
         <PricingSection />
