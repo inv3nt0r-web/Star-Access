@@ -60,6 +60,13 @@ export function Footer() {
               Benefits
             </button>
             <button
+              onClick={() => scrollTo("feedback")}
+              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+              data-testid="link-footer-feedback"
+            >
+              Feedback
+            </button>
+            <button
               onClick={() => scrollTo("pricing")}
               className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
               data-testid="link-footer-pricing"

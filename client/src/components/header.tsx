@@ -22,6 +22,7 @@ export function Header() {
     { label: "How It Works", id: "solution" },
     { label: "Benefits", id: "benefits" },
     { label: "Market", id: "market" },
+    { label: "Feedback", id: "feedback" },
     { label: "Pre-Order", id: "pricing" },
   ];
 

@@ -7,6 +7,7 @@ import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
 import { JourneySection } from "@/components/journey-section";
 import { StoriesSection } from "@/components/stories-section";
+import { FeedbackSection } from "@/components/feedback-section";
 import { PricingSection } from "@/components/pricing-section";
 import { Footer } from "@/components/footer";
 
@@ -23,6 +24,7 @@ export default function Landing() {
         <FounderSection />
         <JourneySection />
         <StoriesSection />
+        <FeedbackSection />
         <PricingSection />
       </main>
       <Footer />
