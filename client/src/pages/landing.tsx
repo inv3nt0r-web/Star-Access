@@ -4,6 +4,7 @@ import { ProblemSection } from "@/components/problem-section";
 import { SolutionSection } from "@/components/solution-section";
 import { BenefitsSection } from "@/components/benefits-section";
 import { FounderSection } from "@/components/founder-section";
+import { JourneySection } from "@/components/journey-section";
 import { StoriesSection } from "@/components/stories-section";
 import { PricingSection } from "@/components/pricing-section";
 import { Footer } from "@/components/footer";
@@ -18,6 +19,7 @@ export default function Landing() {
         <SolutionSection />
         <BenefitsSection />
         <FounderSection />
+        <JourneySection />
         <StoriesSection />
         <PricingSection />
       </main>

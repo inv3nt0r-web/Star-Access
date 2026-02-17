@@ -18,7 +18,7 @@ export function FounderSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3" data-testid="text-founder-label">
+          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3" data-testid="text-founder-label">
             The Founder
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-founder-heading">
@@ -47,16 +47,19 @@ export function FounderSection() {
                 <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-1" data-testid="text-founder-name">
                   Daniel Seyffarth
                 </h3>
-                <p className="text-primary font-medium mb-6" data-testid="text-founder-role">
+                <p className="text-muted-foreground font-medium mb-6" data-testid="text-founder-role">
                   Founder &amp; Inventor of JB5
                 </p>
 
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    With a background in mechanical engineering from Mercedes-Benz and over 15 years of experience in consumer electronics &mdash; including several years at Apple working on in-store launches of products like Apple Vision Pro &mdash; Daniel brings a rare combination of precision engineering and consumer product expertise to JB5.
+                    Trained as a mechanic at Mercedes-Benz, with two years studying mechanical engineering, Daniel spent over 15 years in consumer electronics &mdash; including several years at Apple, where he ran in-store launches for products like Apple Vision Pro and delivered live demos to key customers from day one.
                   </p>
                   <p>
-                    JB5 was born from a simple frustration: why isn't there a fully automatic solution for something millions of people do every day? Daniel set out to build one, and the result is a patent-pending device backed by German government funding programs.
+                    He invented the JB5 entirely on his own and built the first working prototype in Pr&oacute;spera, a special economic zone in Honduras. From there, he moved to Miami and Los Angeles to build the business connections needed to scale JB5 from prototype to industrial production.
+                  </p>
+                  <p>
+                    The result: a patent-pending, fully automatic rolling machine backed by the German Federal Ministry for Economic Affairs (BMWK) and the WIPANO funding program, with support from Forschungszentrum J&uuml;lich.
                   </p>
                 </div>
 
@@ -89,7 +92,7 @@ export function FounderSection() {
             { value: "100%", label: "German engineered", sublabel: "Government funded R&D" },
           ].map((stat) => (
             <Card key={stat.label} className="p-6 text-center" data-testid={`card-stat-${stat.value.toLowerCase().replace(/[^a-z0-9]/g, "")}`}>
-              <p className="text-3xl lg:text-4xl font-bold text-primary mb-2">{stat.value}</p>
+              <p className="text-3xl lg:text-4xl font-bold text-foreground mb-2">{stat.value}</p>
               <p className="font-medium text-foreground text-sm">{stat.label}</p>
               <p className="text-xs text-muted-foreground mt-1">{stat.sublabel}</p>
             </Card>

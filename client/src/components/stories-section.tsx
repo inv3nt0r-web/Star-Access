@@ -52,7 +52,7 @@ export function StoriesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3" data-testid="text-stories-label">
+          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3" data-testid="text-stories-label">
             Who Is It For
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-stories-heading">
@@ -82,7 +82,7 @@ export function StoriesSection() {
                   <h3 className="text-lg font-bold text-foreground" data-testid={`text-story-name-${story.name.split(",")[0].toLowerCase()}`}>
                     {story.name}
                   </h3>
-                  <p className="text-sm text-primary font-medium mb-3">{story.role}</p>
+                  <p className="text-sm text-muted-foreground font-medium mb-3" data-testid={`text-story-role-${story.name.split(",")[0].toLowerCase()}`}>{story.role}</p>
                   <p className="text-muted-foreground leading-relaxed text-sm flex-1">
                     {story.quote}
                   </p>
