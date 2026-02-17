@@ -130,7 +130,7 @@ export function FeedbackSection() {
   return (
     <section
       id="feedback"
-      className="py-24 lg:py-32 bg-card"
+      className="py-24 lg:py-32 bg-background"
       data-testid="section-feedback"
     >
       <div className="max-w-6xl mx-auto px-6">
