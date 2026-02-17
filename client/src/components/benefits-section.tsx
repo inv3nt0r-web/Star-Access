@@ -62,7 +62,7 @@ export function BenefitsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3">
+          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3">
             Why JB5
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
@@ -81,7 +81,7 @@ export function BenefitsSection() {
             <motion.div key={benefit.title} variants={itemVariants}>
               <Card className="p-6 lg:p-8 h-full hover-elevate transition-all duration-300" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-").slice(0, 20)}`}>
                 <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-5">
-                  <benefit.icon className="h-6 w-6 text-primary" />
+                  <benefit.icon className="h-6 w-6 text-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   {benefit.title}

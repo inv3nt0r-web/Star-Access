@@ -54,7 +54,7 @@ export function HeroSection() {
                 onClick={() => scrollTo("pricing")}
                 data-testid="button-hero-waitlist"
               >
-                Join the Waitlist
+                Pre-Order Now
               </Button>
               <Button
                 size="lg"

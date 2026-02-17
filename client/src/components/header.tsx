@@ -21,7 +21,8 @@ export function Header() {
   const navLinks = [
     { label: "How It Works", id: "solution" },
     { label: "Benefits", id: "benefits" },
-    { label: "Pricing", id: "pricing" },
+    { label: "Market", id: "market" },
+    { label: "Pre-Order", id: "pricing" },
   ];
 
   return (
@@ -64,7 +65,7 @@ export function Header() {
               className="hidden md:inline-flex"
               data-testid="button-header-waitlist"
             >
-              Join Waitlist
+              Pre-Order Now
             </Button>
 
             <Button
@@ -105,7 +106,7 @@ export function Header() {
                 className="mt-2"
                 data-testid="button-mobile-waitlist"
               >
-                Join Waitlist
+                Pre-Order Now
               </Button>
             </div>
           </motion.div>

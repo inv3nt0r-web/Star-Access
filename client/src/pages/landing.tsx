@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section";
 import { ProblemSection } from "@/components/problem-section";
 import { SolutionSection } from "@/components/solution-section";
 import { BenefitsSection } from "@/components/benefits-section";
+import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
 import { JourneySection } from "@/components/journey-section";
 import { StoriesSection } from "@/components/stories-section";
@@ -18,6 +19,7 @@ export default function Landing() {
         <ProblemSection />
         <SolutionSection />
         <BenefitsSection />
+        <MarketSection />
         <FounderSection />
         <JourneySection />
         <StoriesSection />

@@ -91,7 +91,7 @@ export function FounderSection() {
             { value: "15+", label: "Years in consumer tech", sublabel: "Mercedes-Benz & Apple" },
             { value: "100%", label: "German engineered", sublabel: "Government funded R&D" },
           ].map((stat) => (
-            <Card key={stat.label} className="p-6 text-center" data-testid={`card-stat-${stat.value.toLowerCase().replace(/[^a-z0-9]/g, "")}`}>
+            <Card key={stat.label} className="p-6 text-center" data-testid={`card-founder-stat-${stat.value.toLowerCase().replace(/[^a-z0-9]/g, "")}`}>
               <p className="text-3xl lg:text-4xl font-bold text-foreground mb-2">{stat.value}</p>
               <p className="font-medium text-foreground text-sm">{stat.label}</p>
               <p className="text-xs text-muted-foreground mt-1">{stat.sublabel}</p>
