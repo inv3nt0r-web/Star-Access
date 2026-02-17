@@ -44,3 +44,21 @@ export const insertFeedbackSchema = createInsertSchema(feedbackEntries).omit({
 
 export type InsertFeedbackEntry = z.infer<typeof insertFeedbackSchema>;
 export type FeedbackEntry = typeof feedbackEntries.$inferSelect;
+
+export const premierPassEntries = pgTable("premier_pass_entries", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  name: text("name"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertPremierPassSchema = createInsertSchema(premierPassEntries).omit({
+  id: true,
+  createdAt: true,
+}).extend({
+  email: z.string().email("Please enter a valid email address"),
+  name: z.string().optional(),
+});
+
+export type InsertPremierPassEntry = z.infer<typeof insertPremierPassSchema>;
+export type PremierPassEntry = typeof premierPassEntries.$inferSelect;

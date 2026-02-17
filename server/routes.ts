@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertWaitlistSchema, insertFeedbackSchema } from "@shared/schema";
+import { insertWaitlistSchema, insertFeedbackSchema, insertPremierPassSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 
@@ -62,6 +62,37 @@ export async function registerRoutes(
       return res.json(safeFeedback);
     } catch (error) {
       console.error("Feedback fetch error:", error);
+      return res.status(500).json({ message: "Something went wrong." });
+    }
+  });
+
+  app.post("/api/premier-pass", async (req, res) => {
+    try {
+      const data = insertPremierPassSchema.parse(req.body);
+
+      const existing = await storage.getPremierPassEntryByEmail(data.email);
+      if (existing) {
+        return res.status(409).json({ message: "This email already has a Premier Pass." });
+      }
+
+      const entry = await storage.createPremierPassEntry(data);
+      return res.status(201).json({ message: "Welcome to the Premier Pass!", id: entry.id });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        const validationError = fromZodError(error);
+        return res.status(400).json({ message: validationError.message });
+      }
+      console.error("Premier Pass error:", error);
+      return res.status(500).json({ message: "Something went wrong. Please try again." });
+    }
+  });
+
+  app.get("/api/premier-pass/count", async (_req, res) => {
+    try {
+      const count = await storage.getPremierPassCount();
+      return res.json({ count });
+    } catch (error) {
+      console.error("Premier Pass count error:", error);
       return res.status(500).json({ message: "Something went wrong." });
     }
   });

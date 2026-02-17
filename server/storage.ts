@@ -1,4 +1,4 @@
-import { type WaitlistEntry, type InsertWaitlistEntry, waitlistEntries, type FeedbackEntry, type InsertFeedbackEntry, feedbackEntries } from "@shared/schema";
+import { type WaitlistEntry, type InsertWaitlistEntry, waitlistEntries, type FeedbackEntry, type InsertFeedbackEntry, feedbackEntries, type PremierPassEntry, type InsertPremierPassEntry, premierPassEntries } from "@shared/schema";
 import { db } from "./db";
 import { eq, count, desc } from "drizzle-orm";
 
@@ -9,6 +9,9 @@ export interface IStorage {
   createFeedbackEntry(entry: InsertFeedbackEntry): Promise<FeedbackEntry>;
   getFeaturedFeedback(): Promise<FeedbackEntry[]>;
   getAllFeedback(): Promise<FeedbackEntry[]>;
+  createPremierPassEntry(entry: InsertPremierPassEntry): Promise<PremierPassEntry>;
+  getPremierPassEntryByEmail(email: string): Promise<PremierPassEntry | undefined>;
+  getPremierPassCount(): Promise<number>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -38,6 +41,21 @@ export class DatabaseStorage implements IStorage {
 
   async getAllFeedback(): Promise<FeedbackEntry[]> {
     return db.select().from(feedbackEntries).orderBy(desc(feedbackEntries.createdAt));
+  }
+
+  async createPremierPassEntry(entry: InsertPremierPassEntry): Promise<PremierPassEntry> {
+    const [result] = await db.insert(premierPassEntries).values(entry).returning();
+    return result;
+  }
+
+  async getPremierPassEntryByEmail(email: string): Promise<PremierPassEntry | undefined> {
+    const [result] = await db.select().from(premierPassEntries).where(eq(premierPassEntries.email, email));
+    return result;
+  }
+
+  async getPremierPassCount(): Promise<number> {
+    const [result] = await db.select({ value: count() }).from(premierPassEntries);
+    return result?.value ?? 0;
   }
 }
 

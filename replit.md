@@ -18,7 +18,7 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 ## Project Architecture
 - **Frontend**: React + Vite, single-page landing with smooth scroll navigation + legal pages via wouter routing
 - **Backend**: Express.js with PostgreSQL via Drizzle ORM
-- **Database**: PostgreSQL with `waitlist_entries` and `feedback_entries` tables
+- **Database**: PostgreSQL with `waitlist_entries`, `feedback_entries`, and `premier_pass_entries` tables
 - **Styling**: Tailwind CSS with Apple/Uber monochrome theme (pure black bg, white/gray text, no gold accents)
 - **SEO**: Canonical URL set to staracces.com, full Open Graph + Twitter card meta tags
 
@@ -34,8 +34,9 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 9. Próspera (overview of Próspera ZEDE charter city on Roatán: private governance, 1% tax, 24h company setup, crypto-native, investor-backed)
 10. User Stories (Sara/Marco/Ben persona cards)
 11. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
-12. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
-13. Footer (section links + legal page links)
+12. Premier Pass (insider access subscription: exclusive updates, investor briefings, market intelligence, founding member status)
+13. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
+14. Footer (section links + legal page links)
 
 ## Key Files
 - `client/src/pages/landing.tsx` - Main landing page
@@ -53,6 +54,8 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 - `GET /api/waitlist/count` - Get waitlist count
 - `POST /api/feedback` - Submit feedback (body: { name: string, email: string, message: string, rating: 1-5 })
 - `GET /api/feedback` - Get featured feedback (emails stripped for privacy)
+- `POST /api/premier-pass` - Join Premier Pass (body: { email: string, name?: string })
+- `GET /api/premier-pass/count` - Get Premier Pass member count
 
 ## Feedback System
 - Customers submit feedback with name, email, star rating, and message

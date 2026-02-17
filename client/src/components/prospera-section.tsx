@@ -1,7 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Globe, Shield, Zap, Building, Landmark, Users, Bitcoin, FlaskConical, MapPin } from "lucide-react";
+import { Globe, Shield, Zap, Building, Landmark, Users, Bitcoin, FlaskConical, MapPin, ExternalLink } from "lucide-react";
 
 const highlights = [
   {
@@ -171,6 +172,14 @@ export function ProsperaSection() {
                 <p className="text-xs text-muted-foreground/50 leading-relaxed mt-4">
                   Sources: Pr&oacute;spera ZEDE official publications (pzgps.hn), Bloomberg (2021), Wikipedia, Roat&aacute;n Tourism Bureau.
                 </p>
+                <div className="mt-6">
+                  <Button variant="outline" asChild data-testid="button-prospera-account">
+                    <a href="https://prospera.hn" target="_blank" rel="noopener noreferrer">
+                      Create Account on Pr&oacute;spera
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </Card>

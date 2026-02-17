@@ -9,6 +9,7 @@ import { JourneySection } from "@/components/journey-section";
 import { ProsperaSection } from "@/components/prospera-section";
 import { StoriesSection } from "@/components/stories-section";
 import { FeedbackSection } from "@/components/feedback-section";
+import { PremierPassSection } from "@/components/premier-pass-section";
 import { PricingSection } from "@/components/pricing-section";
 import { Footer } from "@/components/footer";
 
@@ -27,6 +28,7 @@ export default function Landing() {
         <ProsperaSection />
         <StoriesSection />
         <FeedbackSection />
+        <PremierPassSection />
         <PricingSection />
       </main>
       <Footer />
