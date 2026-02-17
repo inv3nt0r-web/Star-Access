@@ -5,6 +5,7 @@ import { SolutionSection } from "@/components/solution-section";
 import { BenefitsSection } from "@/components/benefits-section";
 import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
+import { GovernmentSection } from "@/components/government-section";
 import { JourneySection } from "@/components/journey-section";
 import { ProsperaSection } from "@/components/prospera-section";
 import { StoriesSection } from "@/components/stories-section";
@@ -24,6 +25,7 @@ export default function Landing() {
         <BenefitsSection />
         <MarketSection />
         <FounderSection />
+        <GovernmentSection />
         <JourneySection />
         <ProsperaSection />
         <StoriesSection />

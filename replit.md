@@ -30,13 +30,14 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 5. Benefits (6 benefit cards)
 6. Market Opportunity (stats: $21B→$102B Grand View Research, TAM/SAM/SOM, target segments, business model, source citations)
 7. Founder (Daniel Seyffarth bio: Mercedes-Benz partner, Apple specialist, Wharton entrepreneurship under Prof. Ethan Mollick, patent/funding badges)
-8. Journey (3-step visual timeline with prototype photos)
-9. Próspera (overview of Próspera ZEDE charter city on Roatán: private governance, 1% tax, 24h company setup, crypto-native, investor-backed)
-10. User Stories (Sara/Marco/Ben persona cards)
-11. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
-12. Premier Pass (insider access subscription: exclusive updates, investor briefings, market intelligence, founding member status)
-13. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
-14. Footer (section links + legal page links)
+8. Government Backed (BMWK Federal Ministry + Forschungszentrum Jülich cards, WIPANO program details, patent stats)
+9. Journey (3-step visual timeline with prototype photos)
+10. Próspera (overview of Próspera ZEDE charter city on Roatán: private governance, 1% tax, 24h company setup, crypto-native, investor-backed)
+11. User Stories (Sara/Marco/Ben persona cards)
+12. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
+13. Premier Pass (insider access subscription: exclusive updates, investor briefings, market intelligence, founding member status)
+14. Pricing (Early Bird $99 pre-order + Investor/Partner card + Roadmap)
+15. Footer (section links + legal page links)
 
 ## Key Files
 - `client/src/pages/landing.tsx` - Main landing page
