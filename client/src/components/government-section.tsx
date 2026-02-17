@@ -132,14 +132,14 @@ export function GovernmentSection() {
                   sublabel: "Full IP protection funding",
                 },
                 {
-                  value: "DE",
-                  label: "German patent granted",
-                  sublabel: "DE 10 2023 130 535 A1",
+                  value: "154",
+                  label: "Countries protected",
+                  sublabel: "PCT International Phase",
                 },
                 {
-                  value: "EU+",
-                  label: "International expansion",
-                  sublabel: "Global patent strategy funded",
+                  value: "PCT",
+                  label: "Global patent filed",
+                  sublabel: "154 countries covered worldwide",
                 },
               ].map((stat) => (
                 <div key={stat.label} className="text-center" data-testid={`stat-wipano-${stat.value.toLowerCase().replace(/[^a-z0-9]/g, "")}`}>
