@@ -188,7 +188,11 @@ export function FeedbackSection() {
           </Card>
         </motion.div>
 
-        {feedbackList && feedbackList.length > 0 && (
+        {isLoading ? (
+          <div className="text-center mb-16">
+            <p className="text-muted-foreground">Loading feedback...</p>
+          </div>
+        ) : feedbackList && feedbackList.length > 0 ? (
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -202,6 +206,13 @@ export function FeedbackSection() {
               </motion.div>
             ))}
           </motion.div>
+        ) : (
+          <div className="text-center mb-16" data-testid="text-feedback-empty">
+            <Card className="p-8 max-w-lg mx-auto">
+              <p className="text-foreground font-semibold mb-2">Be the first to share your thoughts!</p>
+              <p className="text-sm text-muted-foreground">Submit your feedback below for a chance to win a JB5 Special Edition.</p>
+            </Card>
+          </div>
         )}
 
         <motion.div

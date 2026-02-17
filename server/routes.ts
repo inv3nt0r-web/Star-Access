@@ -58,7 +58,8 @@ export async function registerRoutes(
   app.get("/api/feedback", async (_req, res) => {
     try {
       const feedback = await storage.getFeaturedFeedback();
-      return res.json(feedback);
+      const safeFeedback = feedback.map(({ email, ...rest }) => rest);
+      return res.json(safeFeedback);
     } catch (error) {
       console.error("Feedback fetch error:", error);
       return res.status(500).json({ message: "Something went wrong." });
