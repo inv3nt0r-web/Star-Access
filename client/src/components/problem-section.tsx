@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { PackageX, Clock, HandHelping, ShieldAlert } from "lucide-react";
 
@@ -25,16 +24,18 @@ const problems = [
   },
 ];
 
+const smoothEase = [0.25, 0.1, 0.25, 1];
+
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.18 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: smoothEase } },
 };
 
 export function ProblemSection() {
@@ -44,21 +45,21 @@ export function ProblemSection() {
       className="py-24 lg:py-32 bg-background"
       data-testid="section-problems"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7, ease: smoothEase }}
+          className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3" data-testid="text-problem-label">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4" data-testid="text-problem-label">
             The Problem
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-problem-heading">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight" data-testid="text-problem-heading">
             A billion-dollar market with no real solution
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto" data-testid="text-problem-subtitle">
+          <p className="text-muted-foreground mt-5 max-w-2xl mx-auto leading-relaxed" data-testid="text-problem-subtitle">
             Millions of people roll cigarettes and herbal blends every day. The process is manual, messy, and excludes those who need it most.
           </p>
         </motion.div>
@@ -68,21 +69,28 @@ export function ProblemSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid sm:grid-cols-2 gap-6 lg:gap-8"
+          className="grid sm:grid-cols-2 gap-0"
         >
-          {problems.map((problem) => (
-            <motion.div key={problem.title} variants={itemVariants}>
-              <Card className="p-6 lg:p-8 h-full" data-testid={`card-problem-${problem.title.toLowerCase().replace(/\s+/g, "-").slice(0, 25)}`}>
-                <div className="w-12 h-12 rounded-md bg-destructive/10 flex items-center justify-center mb-5">
-                  <problem.icon className="h-6 w-6 text-destructive" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3" data-testid={`text-problem-title-${problem.title.toLowerCase().replace(/\s+/g, "-").slice(0, 15)}`}>
-                  {problem.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {problem.description}
-                </p>
-              </Card>
+          {problems.map((problem, index) => (
+            <motion.div
+              key={problem.title}
+              variants={itemVariants}
+              className={`py-10 px-8 lg:px-12 ${
+                index < 2 ? "border-b border-border/40" : ""
+              } ${
+                index % 2 === 0 ? "sm:border-r border-border/40" : ""
+              }`}
+              data-testid={`card-problem-${problem.title.toLowerCase().replace(/\s+/g, "-").slice(0, 25)}`}
+            >
+              <div className="w-8 h-8 rounded-md bg-muted/50 flex items-center justify-center mb-6">
+                <problem.icon className="h-4 w-4 text-muted-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-3 tracking-tight" data-testid={`text-problem-title-${problem.title.toLowerCase().replace(/\s+/g, "-").slice(0, 15)}`}>
+                {problem.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                {problem.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

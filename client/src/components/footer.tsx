@@ -14,95 +14,94 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-16 lg:py-20 bg-background border-t border-border" data-testid="footer">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <footer className="py-12 bg-background border-t border-border" data-testid="footer">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex flex-col items-center text-center mb-12">
-            <div className="mb-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
+            <div className="flex items-center gap-3">
               <img
                 src={staraccesLogo}
                 alt="Staracces Innovations"
-                className="h-32 w-auto rounded-md"
+                className="h-8 w-8 rounded-md object-cover"
                 data-testid="img-footer-logo"
               />
+              <span className="text-sm font-semibold text-foreground tracking-wider" data-testid="text-footer-brand">
+                STARACCES
+              </span>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-footer-brand">JB5</h3>
-            <p className="text-muted-foreground" data-testid="text-footer-contact">
-              Questions? Email us at{" "}
-              <a
-                href="mailto:info@staracces.com"
-                className="text-primary"
-                data-testid="link-email"
+
+            <nav className="flex flex-wrap items-center gap-6">
+              <button
+                onClick={() => scrollTo("solution")}
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-solution"
               >
-                info@staracces.com
-              </a>
-            </p>
+                How It Works
+              </button>
+              <button
+                onClick={() => scrollTo("benefits")}
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-benefits"
+              >
+                Benefits
+              </button>
+              <button
+                onClick={() => scrollTo("feedback")}
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-feedback"
+              >
+                Feedback
+              </button>
+              <button
+                onClick={() => scrollTo("pricing")}
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-pricing"
+              >
+                Pricing
+              </button>
+              <Link
+                href="/contact"
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-contact"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/imprint"
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-imprint"
+              >
+                Imprint
+              </Link>
+              <Link
+                href="/privacy"
+                className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
+                data-testid="link-footer-privacy"
+              >
+                Privacy
+              </Link>
+            </nav>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <button
-              onClick={() => scrollTo("solution")}
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-solution"
-            >
-              How It Works
-            </button>
-            <button
-              onClick={() => scrollTo("benefits")}
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-benefits"
-            >
-              Benefits
-            </button>
-            <button
-              onClick={() => scrollTo("feedback")}
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-feedback"
-            >
-              Feedback
-            </button>
-            <button
-              onClick={() => scrollTo("pricing")}
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-pricing"
-            >
-              Pricing
-            </button>
-            <Link
-              href="/contact"
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-contact"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/imprint"
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-imprint"
-            >
-              Imprint
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-sm text-muted-foreground transition-colors hover-elevate active-elevate-2 px-2 py-1 rounded-md"
-              data-testid="link-footer-privacy"
-            >
-              Privacy
-            </Link>
-          </div>
-
-          <div className="border-t border-border pt-8 text-center">
-            <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-              &copy; 2026 STARACCES | Staracces UG (haftungsbeschr&auml;nkt)
+          <div className="border-t border-border pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <p className="text-xs text-muted-foreground" data-testid="text-copyright">
+              &copy; 2026 Staracces UG (haftungsbeschr&auml;nkt)
             </p>
-            <p className="text-xs text-muted-foreground mt-1" data-testid="text-location">
-              Los Angeles, CA / Germany | Patent Pending
+            <p className="text-xs text-muted-foreground" data-testid="text-location">
+              Los Angeles, CA / Germany
             </p>
+            <a
+              href="mailto:info@staracces.com"
+              className="text-xs text-muted-foreground hover-elevate px-1 py-0.5 rounded-md"
+              data-testid="link-email"
+            >
+              info@staracces.com
+            </a>
           </div>
         </motion.div>
       </div>

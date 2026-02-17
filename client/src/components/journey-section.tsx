@@ -43,24 +43,24 @@ export function JourneySection() {
   return (
     <section
       id="journey"
-      className="py-24 lg:py-32 bg-background"
+      className="py-24 lg:py-32 bg-card"
       data-testid="section-journey"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3" data-testid="text-journey-label">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4" data-testid="text-journey-label">
             From Idea to Reality
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-journey-heading">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight" data-testid="text-journey-heading">
             The JB5 Journey
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto" data-testid="text-journey-subtitle">
+          <p className="text-muted-foreground mt-5 max-w-2xl mx-auto leading-relaxed" data-testid="text-journey-subtitle">
             Built from scratch by a solo inventor. No venture capital. No big team. Just relentless engineering across three countries.
           </p>
         </motion.div>
@@ -70,22 +70,22 @@ export function JourneySection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-16 lg:space-y-24"
+          className="space-y-24 lg:space-y-32"
         >
           {journeySteps.map((step, index) => (
             <motion.div
               key={step.title}
               variants={itemVariants}
-              className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
+              className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${
                 index % 2 === 1 ? "lg:direction-rtl" : ""
               }`}
               data-testid={`journey-step-${index}`}
             >
-              <div className={`grid grid-cols-2 gap-3 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+              <div className={`grid grid-cols-2 gap-4 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                 {step.images.map((img, imgIndex) => (
                   <div
                     key={imgIndex}
-                    className="overflow-hidden rounded-md aspect-[4/3]"
+                    className="overflow-hidden rounded-lg aspect-[4/3]"
                   >
                     <img
                       src={img}
@@ -98,21 +98,19 @@ export function JourneySection() {
               </div>
 
               <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span
-                    className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-                    data-testid={`text-journey-step-number-${index}`}
-                  >
-                    {index + 1}
-                  </span>
-                  <span
-                    className="text-xs uppercase tracking-widest text-muted-foreground font-medium"
-                    data-testid={`text-journey-location-${index}`}
-                  >
-                    {step.location}
-                  </span>
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4" data-testid={`text-journey-title-${index}`}>
+                <p
+                  className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-3"
+                  data-testid={`text-journey-step-number-${index}`}
+                >
+                  Step {index + 1}
+                </p>
+                <p
+                  className="text-sm text-muted-foreground mb-4"
+                  data-testid={`text-journey-location-${index}`}
+                >
+                  {step.location}
+                </p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight mb-5" data-testid={`text-journey-title-${index}`}>
                   {step.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed" data-testid={`text-journey-desc-${index}`}>

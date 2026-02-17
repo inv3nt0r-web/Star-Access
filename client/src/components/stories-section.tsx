@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import saraImage from "@assets/IMG_1566_1771286746896.png";
 import marcoImage from "@assets/3EFB1DD8-24AE-4A80-A083-DF1EA38E5BB4_1771286746896.png";
@@ -15,7 +14,7 @@ const stories = [
     image: marcoImage,
     name: "Marco, 36",
     role: "Sales Consultant",
-    quote: "Marco spends most of the week on the road. Airports, hotels, quick stops between meetings. He enjoys his small smoke break, but travelling used to mean stress. With the JB5 he now has everything in one discreet place \u2014 his personal mix, filters and papers stay together in the device, ready to use.",
+    quote: "Marco spends most of the week on the road. Airports, hotels, quick stops between meetings. He enjoys his small smoke break, but travelling used to mean stress. With the JB5 he now has everything in one discreet place — his personal mix, filters and papers stay together in the device, ready to use.",
   },
   {
     image: benImage,
@@ -44,18 +43,18 @@ export function StoriesSection() {
       className="py-24 lg:py-32 bg-background"
       data-testid="section-stories"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3" data-testid="text-stories-label">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4" data-testid="text-stories-label">
             Who Is It For
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-stories-heading">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight" data-testid="text-stories-heading">
             Meet the Users
           </h2>
         </motion.div>
@@ -65,29 +64,31 @@ export function StoriesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid md:grid-cols-3 gap-8"
         >
           {stories.map((story) => (
             <motion.div key={story.name} variants={itemVariants}>
-              <Card className="overflow-visible h-full flex flex-col" data-testid={`card-story-${story.name.split(",")[0].toLowerCase()}`}>
-                <div className="aspect-[3/4] overflow-hidden rounded-t-md">
+              <div className="group" data-testid={`card-story-${story.name.split(",")[0].toLowerCase()}`}>
+                <div className="aspect-[3/4] overflow-hidden rounded-lg mb-5">
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                     data-testid={`img-story-${story.name.split(",")[0].toLowerCase()}`}
                   />
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold text-foreground" data-testid={`text-story-name-${story.name.split(",")[0].toLowerCase()}`}>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-semibold text-foreground" data-testid={`text-story-name-${story.name.split(",")[0].toLowerCase()}`}>
                     {story.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground font-medium mb-3" data-testid={`text-story-role-${story.name.split(",")[0].toLowerCase()}`}>{story.role}</p>
-                  <p className="text-muted-foreground leading-relaxed text-sm flex-1">
+                  <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground" data-testid={`text-story-role-${story.name.split(",")[0].toLowerCase()}`}>
+                    {story.role}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed pt-2">
                     {story.quote}
                   </p>
                 </div>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </motion.div>

@@ -18,7 +18,7 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 - **Frontend**: React + Vite, single-page landing with smooth scroll navigation + legal pages via wouter routing
 - **Backend**: Express.js with PostgreSQL via Drizzle ORM
 - **Database**: PostgreSQL with `waitlist_entries` and `feedback_entries` tables
-- **Styling**: Tailwind CSS with custom gold/dark theme tokens
+- **Styling**: Tailwind CSS with Apple/Uber monochrome theme (pure black bg, white/gray text, no gold accents)
 - **SEO**: Canonical URL set to staracces.com, full Open Graph + Twitter card meta tags
 
 ## Landing Page Sections (in order)
@@ -65,7 +65,7 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 - DNS propagation can take up to 48 hours
 
 ## User Preferences
-- Premium dark aesthetic with gold accents
+- Apple/Uber monochrome aesthetic (pure black bg, white/gray text, no gold/warm accents)
 - Real product images from attached_assets (founder photo, prototype shots, persona images, Próspera/Miami location photos)
 - German engineering brand identity
 - Investor-facing content alongside consumer pre-orders

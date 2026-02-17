@@ -35,16 +35,18 @@ const benefits = [
   },
 ];
 
+const smoothEase = [0.25, 0.1, 0.25, 1];
+
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: smoothEase } },
 };
 
 export function BenefitsSection() {
@@ -54,18 +56,18 @@ export function BenefitsSection() {
       className="py-24 lg:py-32 bg-background"
       data-testid="section-benefits"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7, ease: smoothEase }}
+          className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">
             Why JB5
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
             Meet the Benefits
           </h2>
         </motion.div>
@@ -75,18 +77,18 @@ export function BenefitsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {benefits.map((benefit) => (
             <motion.div key={benefit.title} variants={itemVariants}>
-              <Card className="p-6 lg:p-8 h-full hover-elevate transition-all duration-300" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-").slice(0, 20)}`}>
-                <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-5">
-                  <benefit.icon className="h-6 w-6 text-foreground" />
+              <Card className="p-8 lg:p-10 h-full hover-elevate" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-").slice(0, 20)}`}>
+                <div className="w-9 h-9 rounded-md bg-muted/50 flex items-center justify-center mb-6">
+                  <benefit.icon className="h-4 w-4 text-muted-foreground" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3">
+                <h3 className="text-base font-semibold text-foreground mb-2 tracking-tight">
                   {benefit.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {benefit.description}
                 </p>
               </Card>

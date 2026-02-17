@@ -28,7 +28,7 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
   const [hovered, setHovered] = useState(0);
 
   return (
-    <div className="flex gap-1" data-testid="star-rating">
+    <div className="flex gap-1.5" data-testid="star-rating">
       {[1, 2, 3, 4, 5].map((star) => (
         <button
           key={star}
@@ -40,10 +40,10 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
           data-testid={`button-star-${star}`}
         >
           <Star
-            className={`h-6 w-6 transition-colors ${
+            className={`h-5 w-5 transition-colors ${
               star <= (hovered || value)
-                ? "fill-primary text-primary"
-                : "text-muted-foreground"
+                ? "fill-foreground text-foreground"
+                : "text-muted-foreground/40"
             }`}
           />
         </button>
@@ -55,25 +55,24 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
 function FeedbackCard({ entry }: { entry: FeedbackEntry }) {
   return (
     <Card className="p-6 h-full flex flex-col" data-testid={`card-feedback-${entry.id}`}>
-      <div className="flex items-start justify-between gap-4 mb-3">
+      <div className="flex items-start justify-between gap-4 mb-4">
         <div>
-          <p className="font-semibold text-foreground" data-testid={`text-feedback-name-${entry.id}`}>
+          <p className="font-medium text-foreground text-sm" data-testid={`text-feedback-name-${entry.id}`}>
             {entry.name}
           </p>
-          <div className="flex gap-0.5 mt-1">
+          <div className="flex gap-0.5 mt-1.5">
             {[1, 2, 3, 4, 5].map((star) => (
               <Star
                 key={star}
-                className={`h-3.5 w-3.5 ${
-                  star <= entry.rating ? "fill-primary text-primary" : "text-muted-foreground"
+                className={`h-3 w-3 ${
+                  star <= entry.rating ? "fill-foreground text-foreground" : "text-muted-foreground/30"
                 }`}
               />
             ))}
           </div>
         </div>
         {entry.featured && (
-          <Badge className="no-default-hover-elevate no-default-active-elevate flex-shrink-0" data-testid={`badge-featured-${entry.id}`}>
-            <Award className="h-3 w-3 mr-1" />
+          <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate flex-shrink-0 text-xs" data-testid={`badge-featured-${entry.id}`}>
             Featured
           </Badge>
         )}
@@ -131,25 +130,25 @@ export function FeedbackSection() {
   return (
     <section
       id="feedback"
-      className="py-24 lg:py-32 bg-background"
+      className="py-24 lg:py-32 bg-card"
       data-testid="section-feedback"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-foreground font-medium mb-3" data-testid="text-feedback-label">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4" data-testid="text-feedback-label">
             Community Feedback
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-feedback-heading">
-            Share Your Thoughts, Win a Special Edition
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight" data-testid="text-feedback-heading">
+            Share Your Thoughts
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto" data-testid="text-feedback-subtitle">
-            Tell us what excites you about JB5. The best feedback will be featured on our page and rewarded with exclusive perks.
+          <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm" data-testid="text-feedback-subtitle">
+            Tell us what excites you about JB5. The best feedback will be featured and rewarded.
           </p>
         </motion.div>
 
@@ -158,39 +157,33 @@ export function FeedbackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 max-w-3xl mx-auto"
+          className="mb-20 max-w-2xl mx-auto"
         >
-          <Card className="p-8" data-testid="card-feedback-incentive">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Gift className="h-6 w-6 text-foreground" />
+          <div className="text-center" data-testid="card-feedback-incentive">
+            <Gift className="h-6 w-6 text-muted-foreground mx-auto mb-6" />
+            <h3 className="text-lg font-semibold text-foreground mb-6" data-testid="text-incentive-title">
+              Top Feedback Rewards
+            </h3>
+            <div className="grid grid-cols-3 gap-8">
+              <div>
+                <p className="text-2xl font-bold text-foreground">1st</p>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">JB5 Special Edition + free unit</p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-2" data-testid="text-incentive-title">
-                  Top Feedback Rewards
-                </h3>
-                <div className="grid sm:grid-cols-3 gap-4 mt-4">
-                  <div className="text-center">
-                    <p className="text-2xl font-bold text-foreground">1st</p>
-                    <p className="text-sm text-muted-foreground mt-1">JB5 Special Edition + free unit</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl font-bold text-foreground">2nd</p>
-                    <p className="text-sm text-muted-foreground mt-1">$50 off your pre-order</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl font-bold text-foreground">3rd</p>
-                    <p className="text-sm text-muted-foreground mt-1">Exclusive early access + merch</p>
-                  </div>
-                </div>
+                <p className="text-2xl font-bold text-foreground">2nd</p>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">$50 off your pre-order</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-foreground">3rd</p>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Exclusive early access + merch</p>
               </div>
             </div>
-          </Card>
+          </div>
         </motion.div>
 
         {isLoading ? (
-          <div className="text-center mb-16">
-            <p className="text-muted-foreground">Loading feedback...</p>
+          <div className="text-center mb-20">
+            <p className="text-sm text-muted-foreground">Loading feedback...</p>
           </div>
         ) : feedbackList && feedbackList.length > 0 ? (
           <motion.div
@@ -198,7 +191,7 @@ export function FeedbackSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20"
           >
             {feedbackList.map((entry) => (
               <motion.div key={entry.id} variants={itemVariants}>
@@ -207,11 +200,9 @@ export function FeedbackSection() {
             ))}
           </motion.div>
         ) : (
-          <div className="text-center mb-16" data-testid="text-feedback-empty">
-            <Card className="p-8 max-w-lg mx-auto">
-              <p className="text-foreground font-semibold mb-2">Be the first to share your thoughts!</p>
-              <p className="text-sm text-muted-foreground">Submit your feedback below for a chance to win a JB5 Special Edition.</p>
-            </Card>
+          <div className="text-center mb-20" data-testid="text-feedback-empty">
+            <p className="text-foreground font-medium mb-1">Be the first to share your thoughts.</p>
+            <p className="text-sm text-muted-foreground">Submit your feedback below for a chance to win a JB5 Special Edition.</p>
           </div>
         )}
 
@@ -220,21 +211,21 @@ export function FeedbackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-xl mx-auto"
         >
           <Card className="p-8" data-testid="card-feedback-form">
-            <h3 className="text-xl font-bold text-foreground mb-6" data-testid="text-form-title">
+            <h3 className="text-lg font-semibold text-foreground mb-8" data-testid="text-form-title">
               Submit Your Feedback
             </h3>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5" data-testid="form-feedback">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="form-feedback">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Name</FormLabel>
+                        <FormLabel className="text-foreground text-xs uppercase tracking-wider">Name</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Your name"
@@ -251,7 +242,7 @@ export function FeedbackSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Email</FormLabel>
+                        <FormLabel className="text-foreground text-xs uppercase tracking-wider">Email</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
@@ -270,7 +261,7 @@ export function FeedbackSection() {
                   name="rating"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Your Rating</FormLabel>
+                      <FormLabel className="text-foreground text-xs uppercase tracking-wider">Rating</FormLabel>
                       <FormControl>
                         <StarRating
                           value={field.value}
@@ -286,10 +277,10 @@ export function FeedbackSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Your Feedback</FormLabel>
+                      <FormLabel className="text-foreground text-xs uppercase tracking-wider">Your Feedback</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="What excites you about JB5? How would it improve your daily routine? Share your honest thoughts..."
+                          placeholder="What excites you about JB5?"
                           className="resize-none min-h-[120px]"
                           data-testid="input-feedback-message"
                           {...field}
@@ -303,7 +294,7 @@ export function FeedbackSection() {
                   type="submit"
                   size="lg"
                   disabled={submitFeedback.isPending}
-                  className="w-full sm:w-auto"
+                  className="w-full"
                   data-testid="button-submit-feedback"
                 >
                   {submitFeedback.isPending ? (
@@ -313,13 +304,12 @@ export function FeedbackSection() {
                     </>
                   ) : (
                     <>
-                      <Send className="mr-2 h-4 w-4" />
                       Submit Feedback
                     </>
                   )}
                 </Button>
-                <p className="text-xs text-muted-foreground" data-testid="text-feedback-note">
-                  By submitting, you agree that your name and feedback may be featured on our website. Your email will never be shared publicly.
+                <p className="text-xs text-muted-foreground text-center" data-testid="text-feedback-note">
+                  By submitting, you agree that your feedback may be featured. Your email stays private.
                 </p>
               </form>
             </Form>
