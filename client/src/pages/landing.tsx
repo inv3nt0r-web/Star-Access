@@ -3,6 +3,8 @@ import { HeroSection } from "@/components/hero-section";
 import { ProblemSection } from "@/components/problem-section";
 import { SolutionSection } from "@/components/solution-section";
 import { BenefitsSection } from "@/components/benefits-section";
+import { FounderSection } from "@/components/founder-section";
+import { StoriesSection } from "@/components/stories-section";
 import { PricingSection } from "@/components/pricing-section";
 import { Footer } from "@/components/footer";
 
@@ -15,6 +17,8 @@ export default function Landing() {
         <ProblemSection />
         <SolutionSection />
         <BenefitsSection />
+        <FounderSection />
+        <StoriesSection />
         <PricingSection />
       </main>
       <Footer />

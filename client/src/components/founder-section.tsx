@@ -1,0 +1,101 @@
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import founderPhoto from "@assets/IMG_2536_1771286746896.jpeg";
+
+export function FounderSection() {
+  return (
+    <section
+      id="founder"
+      className="py-24 lg:py-32 bg-card dark:bg-card"
+      data-testid="section-founder"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3" data-testid="text-founder-label">
+            The Founder
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground" data-testid="text-founder-heading">
+            Built by an Engineer, for Real People
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+        >
+          <Card className="p-6 lg:p-10 overflow-visible" data-testid="card-founder">
+            <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-2 flex justify-center">
+                <img
+                  src={founderPhoto}
+                  alt="Daniel Seyffarth - Founder of Staracces"
+                  className="w-48 h-48 lg:w-64 lg:h-64 rounded-full object-cover"
+                  data-testid="img-founder"
+                />
+              </div>
+
+              <div className="lg:col-span-3">
+                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-1" data-testid="text-founder-name">
+                  Daniel Seyffarth
+                </h3>
+                <p className="text-primary font-medium mb-6" data-testid="text-founder-role">
+                  Founder &amp; Inventor of JB5
+                </p>
+
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    With a background in mechanical engineering from Mercedes-Benz and over 15 years of experience in consumer electronics &mdash; including several years at Apple working on in-store launches of products like Apple Vision Pro &mdash; Daniel brings a rare combination of precision engineering and consumer product expertise to JB5.
+                  </p>
+                  <p>
+                    JB5 was born from a simple frustration: why isn't there a fully automatic solution for something millions of people do every day? Daniel set out to build one, and the result is a patent-pending device backed by German government funding programs.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-patent">
+                    Patent DE 10 2023 130 535 A1
+                  </Badge>
+                  <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-bmwk">
+                    BMWK Funded
+                  </Badge>
+                  <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-wipano">
+                    WIPANO Program
+                  </Badge>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 grid sm:grid-cols-3 gap-6"
+        >
+          {[
+            { value: "$822B", label: "Projected market by 2032", sublabel: "+11.9% annual growth" },
+            { value: "15+", label: "Years in consumer tech", sublabel: "Mercedes-Benz & Apple" },
+            { value: "100%", label: "German engineered", sublabel: "Government funded R&D" },
+          ].map((stat) => (
+            <Card key={stat.label} className="p-6 text-center" data-testid={`card-stat-${stat.value.toLowerCase().replace(/[^a-z0-9]/g, "")}`}>
+              <p className="text-3xl lg:text-4xl font-bold text-primary mb-2">{stat.value}</p>
+              <p className="font-medium text-foreground text-sm">{stat.label}</p>
+              <p className="text-xs text-muted-foreground mt-1">{stat.sublabel}</p>
+            </Card>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
