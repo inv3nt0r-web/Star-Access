@@ -4,6 +4,7 @@
 A premium product landing page and pitch deck for the JB5 automatic rolling device by Staracces UG. Features an early bird pre-order waitlist system with PostgreSQL persistence, customer feedback with rewards, investor-facing content, and a full product story.
 
 ## Recent Changes
+- 2026-02-17: Updated Market section with research-backed data: $21B→$102B (Grand View Research), 25.7% CAGR, 219M+ users (UNODC), TAM/SAM/SOM breakdown with source citations, Germany-specific data from BfArM
 - 2026-02-17: Added customer feedback section with rewards (Special Edition for best feedback), star ratings, and privacy-safe API
 - 2026-02-17: Added SEO meta tags with canonical URL for staracces.com, Open Graph, Twitter cards, keywords
 - 2026-02-17: Transformed into pitch deck with Market Opportunity section, investor card, and early bird pre-order tiers
@@ -27,7 +28,7 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 3. Problem (4 cards: ingredients, rolling, medical, no solution)
 4. Solution (feature badges, 4-step process, engineering card with CE/REACH/RoHS)
 5. Benefits (6 benefit cards)
-6. Market Opportunity (stats: $105B→$822B, target segments, business model)
+6. Market Opportunity (stats: $21B→$102B Grand View Research, TAM/SAM/SOM, target segments, business model, source citations)
 7. Founder (Daniel Seyffarth bio with Próspera/Miami/LA story, patent/funding badges)
 8. Journey (3-step visual timeline with prototype photos)
 9. User Stories (Sara/Marco/Ben persona cards)
