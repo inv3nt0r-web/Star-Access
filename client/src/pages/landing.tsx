@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
 import { ProblemSection } from "@/components/problem-section";
 import { SolutionSection } from "@/components/solution-section";
+import { VideoShowcaseSection } from "@/components/video-showcase-section";
 import { BenefitsSection } from "@/components/benefits-section";
 import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
@@ -29,6 +30,7 @@ export default function Landing() {
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
+        <VideoShowcaseSection />
         <BenefitsSection />
         <MarketSection />
         <FounderSection />
