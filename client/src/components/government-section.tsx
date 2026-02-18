@@ -93,7 +93,7 @@ export function GovernmentSection() {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Part of the Helmholtz Association, Forschungszentrum J&uuml;lich is one of Europe&rsquo;s largest research centres with over 7,000 employees. As the appointed project management agency (Projekttr&auml;ger), they oversee Staracces&rsquo;s WIPANO funding &mdash; ensuring rigorous standards for innovation and IP development.
+                Part of the Helmholtz Association, Forschungszentrum J&uuml;lich is one of Europe&rsquo;s largest research centres with over 7,000 employees &mdash; home to JUWELS, Europe&rsquo;s first exascale-class supercomputer delivering over 100 petaflops of computing power. As the appointed project management agency (Projekttr&auml;ger), they oversee Staracces&rsquo;s WIPANO funding &mdash; ensuring rigorous standards for innovation and IP development.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Badge variant="outline" className="no-default-hover-elevate no-default-active-elevate" data-testid="badge-helmholtz">

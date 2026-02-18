@@ -4,6 +4,11 @@
 A premium product landing page and pitch deck for the JB5 automatic rolling device by Staracces UG. Features an early bird pre-order waitlist system with PostgreSQL persistence, customer feedback with rewards, investor-facing content, and a full product story.
 
 ## Recent Changes
+- 2026-02-18: Updated Founder section: Siemens Automations & AEG experience, Mercedes-Benz as collaboration partner (not employer)
+- 2026-02-18: Updated Forschungszentrum Jülich with JUWELS supercomputer detail (100+ petaflops)
+- 2026-02-18: Redesigned User Stories with emotional storytelling, pain points, and Pioneer/B2B/Beachhead customer segments
+- 2026-02-18: Updated all 5 pricing tiers with accurate Stripe product descriptions (VIP Innovator Pass $529, Co-Creator Circle $999)
+- 2026-02-18: Enhanced Premier Pass with 3 benefit categories (Insider Intelligence, Direct Access, Business Opportunities)
 - 2026-02-17: Updated Market section with research-backed data: $21B→$102B (Grand View Research), 25.7% CAGR, 219M+ users (UNODC), TAM/SAM/SOM breakdown with source citations, Germany-specific data from BfArM
 - 2026-02-17: Added customer feedback section with rewards (Special Edition for best feedback), star ratings, and privacy-safe API
 - 2026-02-17: Added SEO meta tags with canonical URL for staracces.com, Open Graph, Twitter cards, keywords
@@ -29,14 +34,14 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 4. Solution (feature badges, 4-step process, engineering card with CE/REACH/RoHS)
 5. Benefits (6 benefit cards)
 6. Market Opportunity (stats: $21B→$102B Grand View Research, TAM/SAM/SOM, target segments, business model, source citations)
-7. Founder (Daniel Seyffarth bio: Mercedes-Benz partner, Apple specialist, Wharton entrepreneurship under Prof. Ethan Mollick, patent/funding badges)
+7. Founder (Daniel Seyffarth bio: Siemens Automations & AEG experience, Mercedes-Benz collaboration, Apple specialist, Wharton entrepreneurship under Prof. Ethan Mollick, patent/funding badges)
 8. Government Backed (BMWK Federal Ministry + Forschungszentrum Jülich cards, WIPANO program details, patent stats)
 9. Journey (3-step visual timeline with prototype photos)
 10. Próspera (overview of Próspera ZEDE charter city on Roatán: private governance, 1% tax, 24h company setup, crypto-native, investor-backed)
-11. User Stories (Sara/Marco/Ben persona cards)
+11. User Stories (Sara/Marco/Ben persona cards with emotional storytelling, pain points, Pioneer/B2B/Beachhead customer segments)
 12. Feedback (customer feedback form with star ratings, reward tiers, featured feedback display)
 13. Premier Pass (insider access subscription: exclusive updates, investor briefings, market intelligence, founding member status)
-14. Pricing (5 Stripe checkout tiers: Early Bird $129, Insider Pass $149, Founder's Bundle $279, Business Partner $529, Co-Creator Circle $999 + Roadmap)
+14. Pricing (5 Stripe checkout tiers: Early Bird $129, Insider Pass $149, Founder's Bundle $279, VIP Innovator Pass $529, Co-Creator Circle $999 + Roadmap)
 15. Footer (section links + legal page links)
 
 ## Key Files
@@ -62,7 +67,7 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 - Early Bird ($129): https://buy.stripe.com/4gM3cw5Kg8u75qH5FX00003
 - Insider Pass ($149): https://buy.stripe.com/4gM7sMa0wcKng5ld8p00004
 - Founder's Bundle ($279): https://buy.stripe.com/4gMbJ20pWh0D06ngkB00005
-- Business Partner ($529): https://buy.stripe.com/3cI8wQdcIbGj8CT7O500006
+- VIP Innovator Pass ($529): https://buy.stripe.com/3cI8wQdcIbGj8CT7O500006
 - Co-Creator Circle ($999): https://buy.stripe.com/eVqbJ28Ws39Ng5l1pH00007
 
 ## Feedback System

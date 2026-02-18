@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ExternalLink, Crown, Zap, Star, Briefcase, Gem } from "lucide-react";
+import { Check, ExternalLink, Crown, Zap, Star, Briefcase, Gem } from "lucide-react";
 
 const timeline = [
   { quarter: "Q2 2026", label: "Early Bird Pre-Orders Open", active: true },
@@ -15,38 +15,38 @@ const tiers = [
   {
     name: "Early Bird",
     price: 129,
-    originalPrice: 149,
     icon: Zap,
-    badge: "Most Popular",
+    badge: "Pre-Order",
     featured: false,
-    description: "Pre-order the JB5 at the lowest price available.",
+    description: "Secure your JB5 at the lowest price. Simple, no extras.",
     perks: [
       "1x JB5 unit delivered Q4 2026",
-      "Save $20 off regular price",
-      "First production batch guaranteed",
+      "Priority shipping (before regular orders)",
+      "1-year standard warranty",
       "Development updates until delivery",
       "Lifetime customer support",
-      "Priority shipping",
     ],
-    note: "Limited pre-orders available",
+    note: "Limited early bird pricing",
     url: "https://buy.stripe.com/4gM3cw5Kg8u75qH5FX00003",
     buttonText: "Pre-Order Now",
   },
   {
     name: "Founder's Bundle",
     price: 279,
-    originalPrice: null,
     icon: Star,
     badge: "Best Value",
     featured: true,
-    description: "Complete package: JB5 device + full insider access.",
+    description: "The complete package: your JB5 unit plus unprecedented insider access.",
     perks: [
-      "1x JB5 unit ($129 value)",
-      "Full insider access included",
-      "Priority shipping + 2-year warranty",
-      "Monthly reports & quarterly Q&A",
-      "Founding Supporter status",
-      "Custom branding access",
+      "1x JB5 Pre-Order included ($129 value)",
+      "Priority shipping + 2-year extended warranty",
+      "Monthly investor-grade development reports",
+      "Partnership updates (Casa Verde, Cookies, Stiiizy)",
+      "Hollywood production access (RESET Studios)",
+      "Quarterly video Q&A with founder",
+      "Private Founder's community access",
+      'Listed as "Founding Supporter" (optional)',
+      "Affiliate/Reseller program eligibility",
     ],
     note: "Limited to 100 bundles",
     url: "https://buy.stripe.com/4gMbJ20pWh0D06ngkB00005",
@@ -55,19 +55,21 @@ const tiers = [
   {
     name: "Insider Pass",
     price: 149,
-    originalPrice: null,
     icon: Crown,
     badge: "Intelligence Only",
     featured: false,
-    description: "Unprecedented access to JB5's journey. No device included.",
+    description: "Full insider access to the JB5 journey. No device included.",
     perks: [
-      "Monthly investor reports",
+      "Monthly investor-grade development reports",
       "Partnership updates (Casa Verde, Cookies, Stiiizy)",
-      "Quarterly Q&A with founder",
-      "Private community access",
-      "Affiliate program access",
+      "Financial & production milestones",
+      "Patent strategy & IP roadmap insights",
+      "Quarterly video Q&A with founder",
+      "Private community channel (Telegram/Discord)",
+      "Behind-the-scenes content & prototypes",
+      "Affiliate/Reseller program eligibility",
     ],
-    note: "Device not included",
+    note: "Device not included (purchase separately at $129)",
     url: "https://buy.stripe.com/4gM7sMa0wcKng5ld8p00004",
     buttonText: "Get Insider Access",
   },
@@ -75,33 +77,43 @@ const tiers = [
 
 const premiumTiers = [
   {
-    name: "Business Partner",
+    name: "VIP Innovator Pass",
     price: 529,
     icon: Briefcase,
-    badge: "Premium",
-    description: "Enhanced partnership package with expanded access and multiple units for serious supporters and early business partners.",
+    badge: "Only 10 Spots",
+    description: "Partnership-level access. For serious business partners and investors who want deep involvement.",
     perks: [
-      "Multiple JB5 units included",
-      "All insider access benefits",
-      "Business partnership opportunities",
-      "Extended warranty coverage",
-      "Priority founder access",
+      "1x JB5 Pre-Order included ($129 value)",
+      "VIP priority shipping (first batch) + 3-year warranty",
+      "White-glove customer service",
+      "Monthly 1-on-1 calls with founder (15 min)",
+      "Investor-grade deep dives & full financial transparency",
+      "Exclusive Hollywood production updates (RESET Studios)",
+      "Mentioned in press releases as Strategic Supporter",
+      "Invitation to launch events (LA/Berlin)",
+      "Custom branded Limited Edition option (100+ units)",
+      "Lifetime affiliate/reseller with premium terms",
     ],
     url: "https://buy.stripe.com/3cI8wQdcIbGj8CT7O500006",
-    buttonText: "Become a Partner",
+    buttonText: "Become a VIP",
   },
   {
     name: "Co-Creator Circle",
     price: 999,
     icon: Gem,
     badge: "Only 5 Spots",
-    description: "Ultimate insider experience with direct founder access, 2x JB5 units, co-branding opportunities, and revenue share potential.",
+    description: "The ultimate insider experience. Direct founder access, co-branding, and revenue share potential.",
     perks: [
-      "2x JB5 units included",
-      "Direct founder access (WhatsApp)",
-      "Studio visits & all event invites",
-      "Co-branding & revenue share potential",
-      "Custom prototype access",
+      "2x JB5 Pre-Orders included ($258 value)",
+      "Ultra-priority shipping (absolute first) + lifetime warranty",
+      "Custom prototype unit with your specs",
+      "Direct line to founder (WhatsApp/Signal)",
+      "100% transparency: pitch decks, financials, legal agreements",
+      "Monthly strategy calls + RESET Studios visits",
+      "Co-branding opportunity (your logo on Limited Editions)",
+      "Revenue share on reseller success (custom agreement)",
+      "Invitation to ALL major events worldwide",
+      "Input on product roadmap & features",
     ],
     url: "https://buy.stripe.com/eVqbJ28Ws39Ng5l1pH00007",
     buttonText: "Join the Circle",
@@ -127,10 +139,10 @@ export function PricingSection() {
             Pre-Order Now
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight" data-testid="text-pricing-title">
-            Choose Your Tier
+            What Does This Purchase Get You?
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm" data-testid="text-pricing-subtitle">
-            Secure your JB5 at the early bird price. All payments processed securely through Stripe.
+            More than a device. Each tier unlocks a deeper level of access to the JB5 story, community, and business opportunity.
           </p>
         </motion.div>
 
@@ -177,11 +189,6 @@ export function PricingSection() {
                 </div>
 
                 <div className="mb-6">
-                  {tier.originalPrice && (
-                    <span className="text-sm text-muted-foreground line-through mr-2">
-                      ${tier.originalPrice}
-                    </span>
-                  )}
                   <span className="text-4xl font-bold text-foreground tracking-tight" data-testid={`text-price-${index}`}>
                     ${tier.price}
                   </span>
@@ -277,7 +284,7 @@ export function PricingSection() {
           className="mt-12 text-center"
         >
           <p className="text-xs text-muted-foreground/50">
-            All payments are securely processed through Stripe. Prices in USD.
+            All payments are securely processed through Stripe. Non-refundable, fully transferable. Prices in USD.
           </p>
         </motion.div>
 

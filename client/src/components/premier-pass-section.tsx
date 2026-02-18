@@ -4,41 +4,41 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
-import { Crown, Newspaper, TrendingUp, Lock, Rocket, Users, Check, Loader2 } from "lucide-react";
+import { Crown, Newspaper, TrendingUp, Lock, Rocket, Users, Check, Loader2, Eye, Handshake } from "lucide-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
-const perks = [
+const benefitCategories = [
   {
-    icon: Newspaper,
-    title: "Exclusive Updates",
-    description: "Behind-the-scenes progress reports, prototype milestones, and production updates before anyone else.",
+    title: "Insider Intelligence",
+    icon: Eye,
+    items: [
+      "Monthly investor-grade development reports",
+      "Partnership updates (Casa Verde, Cookies, Stiiizy)",
+      "Financial & production milestones",
+      "Patent strategy & IP roadmap insights",
+    ],
   },
   {
-    icon: TrendingUp,
-    title: "Market Intelligence",
-    description: "Curated industry insights, competitor analysis, and market data relevant to the JB5 opportunity.",
-  },
-  {
-    icon: Rocket,
-    title: "Early Access",
-    description: "First look at new features, beta testing invitations, and priority access to limited product drops.",
-  },
-  {
-    icon: Lock,
-    title: "Investor Briefings",
-    description: "Quarterly investor updates, financial projections, and strategic roadmap presentations.",
-  },
-  {
+    title: "Direct Access",
     icon: Users,
-    title: "Community Access",
-    description: "Join a private network of early supporters, investors, and industry professionals.",
+    items: [
+      "Quarterly video Q&A sessions with founder",
+      "Private community channel (Telegram/Discord)",
+      "Behind-the-scenes content & prototypes",
+      "Early access to all announcements",
+    ],
   },
   {
-    icon: Crown,
-    title: "Founding Member Status",
-    description: "Permanent recognition as a founding Premier Pass holder with priority on all future offerings.",
+    title: "Business Opportunities",
+    icon: Handshake,
+    items: [
+      "Affiliate/Reseller program eligibility",
+      "First look at custom branding options",
+      "Priority on limited product drops",
+      "Founding member recognition",
+    ],
   },
 ];
 
@@ -104,7 +104,7 @@ export function PremierPassSection() {
             Premier Pass
           </h2>
           <p className="text-muted-foreground mt-5 max-w-2xl mx-auto leading-relaxed" data-testid="text-premier-subtitle">
-            Get deeper insights into the JB5 project. Exclusive updates, investor briefings, market intelligence, and founding member status &mdash; completely free during early access.
+            Get unprecedented access to the entire JB5 journey from prototype to global launch. Free basic access during early stage &mdash; or upgrade for the full insider experience.
           </p>
         </motion.div>
 
@@ -113,16 +113,25 @@ export function PremierPassSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20"
+          className="grid md:grid-cols-3 gap-6 mb-20"
         >
-          {perks.map((perk) => (
-            <motion.div key={perk.title} variants={itemVariants}>
-              <Card className="p-8 lg:p-10 h-full" data-testid={`card-perk-${perk.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                <perk.icon className="h-6 w-6 text-muted-foreground mb-6" />
-                <h4 className="text-lg font-semibold text-foreground mb-3">
-                  {perk.title}
-                </h4>
-                <p className="text-muted-foreground leading-relaxed text-sm">{perk.description}</p>
+          {benefitCategories.map((category) => (
+            <motion.div key={category.title} variants={itemVariants}>
+              <Card className="p-8 lg:p-10 h-full overflow-visible" data-testid={`card-benefit-${category.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                <div className="flex items-center gap-3 mb-6">
+                  <category.icon className="h-5 w-5 text-muted-foreground" />
+                  <h4 className="text-base font-semibold text-foreground">
+                    {category.title}
+                  </h4>
+                </div>
+                <div className="space-y-3">
+                  {category.items.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <Check className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </Card>
             </motion.div>
           ))}
@@ -134,7 +143,7 @@ export function PremierPassSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="p-8 lg:p-12" data-testid="card-premier-signup">
+          <Card className="p-8 lg:p-12 overflow-visible" data-testid="card-premier-signup">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -147,7 +156,7 @@ export function PremierPassSection() {
                   Join the Inner Circle
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
-                  Sign up for your Premier Pass and get immediate access to exclusive project updates, investor briefings, and founding member benefits. No payment required &mdash; this is our way of rewarding early believers.
+                  Sign up for your free Premier Pass and get progress reports, market insights, and founding member status. No payment required &mdash; this is our way of rewarding early believers.
                 </p>
                 <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                   <span className="flex items-center gap-2">
@@ -160,7 +169,7 @@ export function PremierPassSection() {
                   </span>
                   <span className="flex items-center gap-2">
                     <Check className="h-4 w-4" />
-                    Investor updates
+                    Community access
                   </span>
                   <span className="flex items-center gap-2">
                     <Check className="h-4 w-4" />
@@ -205,7 +214,7 @@ export function PremierPassSection() {
                     ) : (
                       <>
                         <Crown className="mr-2 h-4 w-4" />
-                        Get Your Premier Pass
+                        Get Your Free Premier Pass
                       </>
                     )}
                   </Button>
@@ -215,7 +224,7 @@ export function PremierPassSection() {
                 </form>
                 <div className="mt-6 pt-6 border-t border-border/40">
                   <p className="text-xs text-muted-foreground text-center mb-3">
-                    Want full insider access with investor reports &amp; Q&amp;A?
+                    Want the full experience with investor reports, Q&amp;A sessions &amp; business opportunities?
                   </p>
                   <Button
                     variant="outline"
