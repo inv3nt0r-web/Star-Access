@@ -4,6 +4,10 @@
 A premium product landing page and pitch deck for the JB5 automatic rolling device by Staracces UG. Features an early bird pre-order waitlist system with PostgreSQL persistence, customer feedback with rewards, investor-facing content, and a full product story.
 
 ## Recent Changes
+- 2026-02-18: Added security hardening: Helmet headers, rate limiting (100 req/15min API, 10 submissions/hr), HSTS, X-Frame-Options, Permissions-Policy
+- 2026-02-18: Added accessibility: skip navigation, ARIA labels/roles, semantic landmarks, keyboard-accessible star ratings
+- 2026-02-18: Fixed SEO meta tags to reflect $129 pricing (was outdated $99)
+- 2026-02-18: Created 50 customer pain point video scripts for social media ads (client/public/video-scripts-painpoints.md)
 - 2026-02-18: Updated Founder section: Siemens Automations & AEG experience, Mercedes-Benz as collaboration partner (not employer)
 - 2026-02-18: Updated Forschungszentrum Jülich with JUWELS supercomputer detail (100+ petaflops)
 - 2026-02-18: Redesigned User Stories with emotional storytelling, pain points, and Pioneer/B2B/Beachhead customer segments
@@ -26,6 +30,9 @@ A premium product landing page and pitch deck for the JB5 automatic rolling devi
 - **Database**: PostgreSQL with `waitlist_entries`, `feedback_entries`, and `premier_pass_entries` tables
 - **Styling**: Tailwind CSS with Apple/Uber monochrome theme (pure black bg, white/gray text, no gold accents)
 - **SEO**: Canonical URL set to staracces.com, full Open Graph + Twitter card meta tags
+- **Security**: Helmet headers, rate limiting (express-rate-limit), HSTS in production, X-Frame-Options, Permissions-Policy
+- **Accessibility**: Skip navigation, ARIA labels/roles, semantic HTML landmarks, keyboard-accessible forms
+- **Marketing**: 50 customer pain point video scripts in client/public/video-scripts-painpoints.md
 
 ## Landing Page Sections (in order)
 1. Header (sticky nav with "Pre-Order Now" CTA)

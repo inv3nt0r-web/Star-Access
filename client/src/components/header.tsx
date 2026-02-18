@@ -28,6 +28,8 @@ export function Header() {
 
   return (
     <header
+      role="banner"
+      aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-background/70 backdrop-blur-2xl border-b border-border/40"
@@ -47,7 +49,7 @@ export function Header() {
             </span>
           </button>
 
-          <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -75,9 +77,11 @@ export function Header() {
               variant="ghost"
               className="md:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
               data-testid="button-mobile-menu"
             >
-              {mobileOpen ? <X /> : <Menu />}
+              {mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
             </Button>
           </div>
         </div>

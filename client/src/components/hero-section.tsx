@@ -18,7 +18,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroBackground}
-          alt=""
+          alt="JB5 product showcase background"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/50" />
@@ -95,6 +95,7 @@ export function HeroSection() {
       >
         <button
           onClick={() => scrollTo("problems")}
+          aria-label="Scroll to next section"
           className="flex flex-col items-center gap-2 text-white/30 hover:text-white/60 transition-colors"
           data-testid="button-scroll-down"
         >

@@ -28,11 +28,14 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
   const [hovered, setHovered] = useState(0);
 
   return (
-    <div className="flex gap-1.5" data-testid="star-rating">
+    <div className="flex gap-1.5" role="radiogroup" aria-label="Rating" data-testid="star-rating">
       {[1, 2, 3, 4, 5].map((star) => (
         <button
           key={star}
           type="button"
+          role="radio"
+          aria-checked={star === value}
+          aria-label={`${star} star${star > 1 ? "s" : ""}`}
           onClick={() => onChange(star)}
           onMouseEnter={() => setHovered(star)}
           onMouseLeave={() => setHovered(0)}
@@ -40,6 +43,7 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
           data-testid={`button-star-${star}`}
         >
           <Star
+            aria-hidden="true"
             className={`h-5 w-5 transition-colors ${
               star <= (hovered || value)
                 ? "fill-foreground text-foreground"

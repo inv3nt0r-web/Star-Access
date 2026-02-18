@@ -14,7 +14,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-12 bg-background border-t border-border" data-testid="footer">
+    <footer role="contentinfo" aria-label="Site footer" className="py-12 bg-background border-t border-border" data-testid="footer">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ export function Footer() {
               </span>
             </div>
 
-            <nav className="flex flex-wrap items-center gap-6">
+            <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-6">
               <button
                 onClick={() => scrollTo("solution")}
                 className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
