@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Check, ExternalLink, Crown, Zap, Star, Briefcase, Gem } from "lucide-react";
+import { Check, ExternalLink, Crown, Zap, Star, Briefcase, Gem, Store } from "lucide-react";
 
 const timeline = [
   { quarter: "Q2 2026", label: "Early Bird Pre-Orders Open", active: true },
@@ -41,11 +41,11 @@ const tiers = [
       "1x JB5 Pre-Order included ($129 value)",
       "Priority shipping + 2-year extended warranty",
       "Monthly investor-grade development reports",
-      "Partnership updates (Casa Verde, Cookies, Stiiizy)",
+      "Strategic brand partnership updates (US market launch)",
       "Hollywood production access (RESET Studios)",
       "Quarterly video Q&A with founder",
       "Private Founder's community access",
-      'Listed as "Founding Supporter" (optional)',
+      "Listed as \"Founding Supporter\" (optional)",
       "Affiliate/Reseller program eligibility",
     ],
     note: "Limited to 100 bundles",
@@ -61,7 +61,7 @@ const tiers = [
     description: "Full insider access to the JB5 journey. No device included.",
     perks: [
       "Monthly investor-grade development reports",
-      "Partnership updates (Casa Verde, Cookies, Stiiizy)",
+      "Strategic brand partnership updates (US market launch)",
       "Financial & production milestones",
       "Patent strategy & IP roadmap insights",
       "Quarterly video Q&A with founder",
@@ -286,6 +286,42 @@ export function PricingSection() {
           <p className="text-xs text-muted-foreground/50">
             All payments are securely processed through Stripe. Non-refundable, fully transferable. Prices in USD.
           </p>
+        </motion.div>
+
+        {/* B2B / Retailer Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-16 max-w-3xl mx-auto"
+        >
+          <div className="border border-border rounded-xl p-8 text-center">
+            <div className="flex justify-center mb-4">
+              <div className="p-2 rounded-md bg-muted">
+                <Store className="w-5 h-5 text-foreground" />
+              </div>
+            </div>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-3">
+              Retailers & Partners
+            </p>
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
+              Interested in Carrying the JB5?
+            </h3>
+            <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-3">
+              We're building a California Founding Retail Partner program â a limited group of dispensaries and specialty retailers who get priority Q4 allocation, launch partner pricing, and first access to our co-branded edition.
+            </p>
+            <p className="text-xs text-muted-foreground/70 mb-6">
+              No upfront payment required. A letter of intent is all we need to reserve your allocation.
+            </p>
+            <Button
+              variant="outline"
+              onClick={() => window.open("mailto:info@staracces.com?subject=Retail Partner Inquiry â JB5 Founding Partner Program", "_blank")}
+            >
+              Contact Us for Wholesale Pricing
+              <ExternalLink className="ml-2 h-3.5 w-3.5" />
+            </Button>
+          </div>
         </motion.div>
 
         <motion.div
