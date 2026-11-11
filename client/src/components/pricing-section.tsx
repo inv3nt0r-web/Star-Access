@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { Check, ExternalLink, Crown, Zap, Star, Briefcase, Gem, Store } from "lucide-react";
 
 const timeline = [
-  { quarter: "Q2 2026", label: "Early Bird Pre-Orders Open", active: true },
-  { quarter: "Q3 2026", label: "Serial Prototypes & Stress Tests", active: false },
-  { quarter: "Q4 2026", label: "CE Certification & First Units Ship", active: false },
-  { quarter: "Q1 2027", label: "Full Production & Global Launch", active: false },
+  { quarter: "Done", label: "Working Prototype", active: true },
+  { quarter: "Now", label: "Early Bird Pre-Orders Open", active: true },
+  { quarter: "Next", label: "First Batch & CE Certification", active: false },
+  { quarter: "Then", label: "Full Production & Global Launch", active: false },
 ];
 
 const tiers = [
@@ -20,7 +20,7 @@ const tiers = [
     featured: false,
     description: "Secure your JB5 at the lowest price. Simple, no extras.",
     perks: [
-      "1x JB5 unit delivered Q4 2026",
+      "1x JB5 unit from the first production batch",
       "Priority shipping (before regular orders)",
       "1-year standard warranty",
       "Development updates until delivery",
