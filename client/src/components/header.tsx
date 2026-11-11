@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "wouter";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [location, navigate] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -15,15 +17,24 @@ export function Header() {
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
+    if (id === "about") {
+      navigate("/about");
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    if (location !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const navLinks = [
+    { label: "Latest", id: "lab" },
     { label: "How It Works", id: "solution" },
     { label: "Benefits", id: "benefits" },
-    { label: "Market", id: "market" },
-    { label: "Feedback", id: "feedback" },
     { label: "Pre-Order", id: "pricing" },
+    { label: "About", id: "about" },
   ];
 
   return (

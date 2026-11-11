@@ -1,22 +1,22 @@
+import { useEffect } from "react";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
-import { ProblemSection } from "@/components/problem-section";
+import { LabUpdateSection } from "@/components/lab-update-section";
 import { SolutionSection } from "@/components/solution-section";
 import { VideoShowcaseSection } from "@/components/video-showcase-section";
 import { BenefitsSection } from "@/components/benefits-section";
-import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
-import { GovernmentSection } from "@/components/government-section";
-import { JourneySection } from "@/components/journey-section";
-import { LabUpdateSection } from "@/components/lab-update-section";
-import { ProsperaSection } from "@/components/prospera-section";
-import { StoriesSection } from "@/components/stories-section";
-import { FeedbackSection } from "@/components/feedback-section";
-import { PremierPassSection } from "@/components/premier-pass-section";
 import { PricingSection } from "@/components/pricing-section";
 import { Footer } from "@/components/footer";
 
 export default function Landing() {
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const t = setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 300);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <a
@@ -29,19 +29,11 @@ export default function Landing() {
       <Header />
       <main id="main-content" role="main">
         <HeroSection />
-        <ProblemSection />
+        <LabUpdateSection />
         <SolutionSection />
         <VideoShowcaseSection />
         <BenefitsSection />
-        <MarketSection />
         <FounderSection />
-        <GovernmentSection />
-        <JourneySection />
-        <LabUpdateSection />
-        <ProsperaSection />
-        <StoriesSection />
-        <FeedbackSection />
-        <PremierPassSection />
         <PricingSection />
       </main>
       <Footer />

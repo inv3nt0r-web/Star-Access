@@ -9,6 +9,7 @@ import Landing from "@/pages/landing";
 import Imprint from "@/pages/imprint";
 import Privacy from "@/pages/privacy";
 import Contact from "@/pages/contact";
+import About from "@/pages/about";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/imprint" component={Imprint} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/contact" component={Contact} />
+      <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
   );

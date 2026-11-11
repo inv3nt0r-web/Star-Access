@@ -50,13 +50,13 @@ export function Footer() {
               >
                 Benefits
               </button>
-              <button
-                onClick={() => scrollTo("feedback")}
+              <Link
+                href="/about"
                 className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
-                data-testid="link-footer-feedback"
+                data-testid="link-footer-about"
               >
-                Feedback
-              </button>
+                About
+              </Link>
               <button
                 onClick={() => scrollTo("pricing")}
                 className="text-xs text-muted-foreground hover-elevate active-elevate-2 px-1 py-0.5 rounded-md"
