@@ -8,6 +8,7 @@ import { MarketSection } from "@/components/market-section";
 import { FounderSection } from "@/components/founder-section";
 import { GovernmentSection } from "@/components/government-section";
 import { JourneySection } from "@/components/journey-section";
+import { LabUpdateSection } from "@/components/lab-update-section";
 import { ProsperaSection } from "@/components/prospera-section";
 import { StoriesSection } from "@/components/stories-section";
 import { FeedbackSection } from "@/components/feedback-section";
@@ -36,6 +37,7 @@ export default function Landing() {
         <FounderSection />
         <GovernmentSection />
         <JourneySection />
+        <LabUpdateSection />
         <ProsperaSection />
         <StoriesSection />
         <FeedbackSection />
